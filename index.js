@@ -5,7 +5,9 @@ import "./navigo_EditedByLars.js"  //Will create the global Navigo, with a few c
 import {
   setActiveLink, loadHtml, renderHtml} from "./utility.js"
 
+
   import { initHome } from "./pages/home/home.js"
+  import { initSignup } from "./pages/signup/signup.js"
 
     window.addEventListener("load", async () => {
 
@@ -60,7 +62,7 @@ import {
       },
       "/signup": () => {
         renderHtml(templateSignup, "content")
-        //initSignup()
+        initSignup()
       },
       "/login": (match) => {
         renderHtml(templateLogin, "content")
