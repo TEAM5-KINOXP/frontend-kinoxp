@@ -5,7 +5,7 @@ import "./navigo_EditedByLars.js"  //Will create the global Navigo, with a few c
 import {
   setActiveLink, loadHtml, renderHtml} from "./utility.js"
 
-  //import { initHome } from "./pages/home/home.js"
+  import { initHome } from "./pages/home/home.js"
 
     window.addEventListener("load", async () => {
 
@@ -37,6 +37,7 @@ import {
       //For very simple "templates", you can just insert your HTML directly like below
       "/": () => {
         renderHtml(templateHome, "content")
+        initHome();
       },
       "/members": (match) => {
         renderHtml(templateMembers, "content")
