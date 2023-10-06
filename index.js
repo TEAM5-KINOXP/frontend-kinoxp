@@ -8,6 +8,7 @@ import {
 
   import { initHome } from "./pages/home/home.js"
   import { initSignup } from "./pages/signup/signup.js"
+  import { initLogin } from "./pages/login/login.js"
 
     window.addEventListener("load", async () => {
 
@@ -18,6 +19,7 @@ import {
   const templateReservations = await loadHtml("./pages/reservations/reservations.html")
   const templateSchedule = await loadHtml("./pages/schedule/schedule.html")
   const templateSignup = await loadHtml("./pages/signup/signup.html")
+  const templateLogin = await loadHtml("./pages/login/login.html")
   const templateNotFound = await loadHtml("./pages/notFound/notFound.html")
 
   //If token existed, for example after a refresh, set UI accordingly
@@ -66,7 +68,7 @@ import {
       },
       "/login": (match) => {
         renderHtml(templateLogin, "content")
-        //initLogin()
+        initLogin()
       }, 
       "/logout": () => {
         renderHtml(templateLogin, "content")

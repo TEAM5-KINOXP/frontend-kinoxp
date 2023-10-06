@@ -31,6 +31,7 @@ async function signup(){
         console.log(res)
     } catch(err){
         console.log(err.message)
+        document.querySelector("#signup-fail").innerHTML = err.message  
     }
 
 }
