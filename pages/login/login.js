@@ -21,6 +21,7 @@ async function login(){
 
     try {
         const res = await fetch(URL, makeOptions("POST", loginRequest)).then(r => handleHttpErrors(r))
+        window.router.navigate("/")
     } catch (err) {
         console.log(err.message)
         document.querySelector("#login-fail").innerHTML = err.message

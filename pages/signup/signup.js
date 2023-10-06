@@ -27,8 +27,9 @@ async function signup(){
 
     try {
         const res = await fetch(URL, makeOptions("POST", signupRequest)).then(r => handleHttpErrors(r))
-
         console.log(res)
+        window.router.navigate("/login")
+
     } catch(err){
         console.log(err.message)
         document.querySelector("#signup-fail").innerHTML = err.message  
