@@ -8,7 +8,7 @@ import {
 
   import { initHome } from "./pages/home/home.js"
   import { initSignup } from "./pages/signup/signup.js"
-  import { initMovie, setUpDeleteModal, deleteMovie, closeModal, addMovie} from "./pages/movie/movie.js"
+  import { initMovie, setUpDeleteModal, deleteMovie, addMovie} from "./pages/movie/movie.js"
   import { initMembers } from "./pages/members/members.js"
     window.addEventListener("load", async () => {
 
@@ -20,6 +20,7 @@ import {
   const templateSchedule = await loadHtml("./pages/schedule/schedule.html")
   const templateSignup = await loadHtml("./pages/signup/signup.html")
   const templateNotFound = await loadHtml("./pages/notFound/notFound.html")
+  const templateLogin = await loadHtml("./pages/login/login.html")
 
   //If token existed, for example after a refresh, set UI accordingly
   //const token = localStorage.getItem("token")

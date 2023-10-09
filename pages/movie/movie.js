@@ -5,7 +5,7 @@ const url = API_URL + "/movies";
 
 export async function initMovie() {
   const options = makeOptions("GET",null, true);
-  const movies = await fetch(url, options).then(handleHttpErrors);
+  const movies = await fetch(url, options).then(r =>handleHttpErrors(r));
 
   const tableRows = movies.map(movie => `
   <tr>
@@ -18,8 +18,8 @@ export async function initMovie() {
   const tableRowsAsString = tableRows.join("");
 
   document.querySelector("#table-rows").innerHTML = sanitizeStringWithTableRows(tableRowsAsString);
-  document.querySelector('#table-rows').addEventListener('click', setUpDeleteModal)
-  document.querySelector("#btn-submit-movie").addEventListener("click", addMovie);
+  document.querySelector("#table-rows").addEventListener('click', setUpDeleteModal)
+  document.querySelector("#btn-submit-movie").addEventListener("click", addMovie,);
 
 }
 
@@ -31,7 +31,8 @@ export async function addMovie(){
 
     const options = makeOptions("POST",null, true);
 
-    const movie = await fetch(addURL, options).then(handleHttpErrors)
+    const movie = await fetch(addURL, options).then(r => handleHttpErrors(r));
+    window.location.reload();
 }
 // export async function initDeleteMovie() {
 //     document.querySelector(".delete-button").addEventListener("click", deleteMovie);
@@ -61,10 +62,8 @@ export async function setUpDeleteModal(e) {
 
 export async function deleteMovie(id){
     const DELETE_URL = `${url}/${id}`
-    const delete_res = await fetch(DELETE_URL, makeOptions("DELETE"))
-}
-export async function closeModal(){
-    document.querySelector("#delete-button").removeEventListener("click", closeModal);
+    const delete_res = await fetch(DELETE_URL, makeOptions("DELETE")).then(r => handleHttpErrors(r))
+    location.reload()
 }
 
 
