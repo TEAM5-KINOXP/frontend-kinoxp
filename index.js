@@ -8,6 +8,8 @@ import {
 
   import { initHome } from "./pages/home/home.js"
   import { initSignup } from "./pages/signup/signup.js"
+  import {initBooking} from "./pages/reservations/reservations.js"
+  import{initMovieShow} from "./pages/movieshow/movieshow.js"
 
     window.addEventListener("load", async () => {
 
@@ -16,7 +18,7 @@ import {
   const templateMovie = await loadHtml("./pages/movie/movie.html")
   const templateProfile = await loadHtml("./pages/profile/profile.html")
   const templateReservations = await loadHtml("./pages/reservations/reservations.html")
-  const templateSchedule = await loadHtml("./pages/schedule/schedule.html")
+  const templateMovieshow = await loadHtml("./pages/movieshow/movieshow.html")
   const templateSignup = await loadHtml("./pages/signup/signup.html")
   const templateNotFound = await loadHtml("./pages/notFound/notFound.html")
 
@@ -55,10 +57,11 @@ import {
       },
       "/reservations": () => {
         renderHtml(templateReservations, "content")
-        //initListReservationsAll()
+        initBooking()
       },
-      "/schedule": () => {
-        renderHtml(templateSchedule, "content")
+      "/movieshow": (match) => {
+        renderHtml(templateMovieshow, "content")
+        initMovieShow(match)
       },
       "/signup": () => {
         renderHtml(templateSignup, "content")
