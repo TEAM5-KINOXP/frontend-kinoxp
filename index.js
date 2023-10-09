@@ -8,7 +8,7 @@ import {
 
   import { initHome } from "./pages/home/home.js"
   import { initSignup } from "./pages/signup/signup.js"
-
+  import { initMovie, setUpDeleteModal, deleteMovie, closeModal, addMovie} from "./pages/movie/movie.js"
     window.addEventListener("load", async () => {
 
   const templateHome = await loadHtml("./pages/home/home.html")
@@ -47,7 +47,10 @@ import {
       },
       "/movie": (match) => {
         renderHtml(templateMovie, "content")
-        //initMovie()
+        initMovie()
+        deleteMovie()
+        setUpDeleteModal()
+        addMovie()
       },
       "/profile": () => {
         renderHtml(templateProfile, "content")
