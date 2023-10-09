@@ -8,6 +8,7 @@ import {
 
   import { initHome } from "./pages/home/home.js"
   import { initSignup } from "./pages/signup/signup.js"
+  import { initMembers } from "./pages/members/members.js"
 
     window.addEventListener("load", async () => {
 
@@ -41,9 +42,9 @@ import {
         renderHtml(templateHome, "content")
         initHome();
       },
-      "/members": (match) => {
+      "/members": () => {
         renderHtml(templateMembers, "content")
-        //initMembers(match)
+        initMembers()
       },
       "/movie": (match) => {
         renderHtml(templateMovie, "content")
