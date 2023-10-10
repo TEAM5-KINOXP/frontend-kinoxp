@@ -1,3 +1,49 @@
 <div class="template">
-    <h1>Movie</h1>
-</div>
+    <h1>Movies</h1>
+    <form id="form" style="max-width: 800px;">
+      <div class="row">
+        <div class="col-md-2">
+          <label for="movie-imdb-id">IMDB ID</label>
+        </div>
+        <div class="col-md-10">
+          <input id="movie-imdb-id" >
+        </div>
+      </div>
+      <button id="btn-submit-movie" class="btn btn-dark mt-2">Submit new movie</button>
+    </form>
+        <table class="table">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Title</th>
+              <th>Genre</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody id="table-rows"></tbody>
+        </table>
+  
+        <p id="error" style="color: red"></p>
+      
+        <!--MODAL FOR DELETION-->
+      <div class="modal fade" id="delete-modal" tabindex="-1" aria-labelledby="delete-modal-label" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h1 class="modal-title fs-5" id="delete-modal-label"></h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                Are you sure you want to delete this movie?
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button id="delete-button" type="submit" class="btn btn-primary" data-bs-dismiss="modal">Delete movie</button>   
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
