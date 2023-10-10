@@ -9,7 +9,8 @@ import {
   import { initHome } from "./pages/home/home.js"
   import { initSignup } from "./pages/signup/signup.js"
   import { initMembers } from "./pages/members/members.js"
-  import { initMovie, addMovie, deleteMovie, setUpDeleteModal } from "./pages/movie/movie.js"
+  import { initMovie } from "./pages/movie/movie.js"
+  import { initReservations } from "./pages/reservations/reservations.js"
     window.addEventListener("load", async () => {
 
   const templateHome = await loadHtml("./pages/home/home.html")
@@ -49,10 +50,6 @@ import {
       "/movie": (match) => {
         renderHtml(templateMovie, "content")
         initMovie()
-        addMovie()
-        setUpDeleteModal()
-        deleteMovie()
-        
       },
       "/profile": () => {
         renderHtml(templateProfile, "content")
@@ -60,7 +57,7 @@ import {
       },
       "/reservations": () => {
         renderHtml(templateReservations, "content")
-        //initListReservationsAll()
+        initReservations()
       },
       "/schedule": () => {
         renderHtml(templateSchedule, "content")

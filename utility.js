@@ -61,10 +61,10 @@ export function renderHtml(template, contentId) {
   export async function handleHttpErrors(res) {
     if (!res.ok) {
       const errorResponse = await res.json();
-      const msg = errorResponse.message ? errorResponse.message:"No error details provided"
-      throw new Error(msg)
+      const msg = errorResponse.message || "No error details provided";
+      throw new Error(msg);
     }
-   return res.json()
+    return res.json();
   }
   
   export function makeOptions(method, body, addToken) {

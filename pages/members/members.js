@@ -32,6 +32,11 @@ async function setUpDeleteModel(evt){
     document.querySelector('#delete-button').addEventListener('click', async () => {await deleteUser(username)})
 }
 async function deleteUser(username){
-    const DELETE_URL = API_URL + "/user/${username}"
-    const delete_res = await fetch(DELETE_URL, makeOptions("DELETE")).then(handleHttpErrors)
+    try{
+    const DELETE_URL = API_URL + `/users/${username}`
+    await fetch(DELETE_URL, makeOptions("DELETE")).then(handleHttpErrors)
+    }catch(error){
+        console.log(error)
+    }
+    location.reload()
 }
