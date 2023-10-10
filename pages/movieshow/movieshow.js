@@ -1,15 +1,18 @@
-import { handleHttpErrors} from "../../utility.js";
+import { handleHttpErrors, makeOptions} from "../../utility.js";
 import { API_URL } from "../../settings.js";
 const url = API_URL + "/shows/movie/";
+const url_reservation=API_URL+"/reservations"
 
  let selectedDate="";
  let selectedTimeslot="";
 // let selectedMovieShow="";
+let movieshowId;
+let seatnumber;
 
 let showDate=[];
 let timeslot=[];
 
-
+const HARDCODEDUSER="user1"
 
 // export async function initMovieShow(match){
 //     const movieId=match.params.id
@@ -52,6 +55,7 @@ let timeslot=[];
    
 // }
 let shows=[]
+
 export async function initMovieShow(match) {
     const movieId = match.params.id;
      shows = await fetch(url + movieId).then(r => handleHttpErrors(r));
@@ -70,7 +74,7 @@ export async function initMovieShow(match) {
     dateselection.innerHTML = '<option selected></option>' + uniqueDates.map(date => `<option>${date}</option>`).join("");
   
     // Function to update timeslot selector based on selected date
-    function updateTimeslotSelector(selectedDate) {
+  function updateTimeslotSelector(selectedDate) {
       const filteredShows = shows.filter(show => show.showingDate === selectedDate);
       const uniqueTimeslots = [...new Set(filteredShows.map(show => show.timeslot))];
       timeslotselection.innerHTML = '<option selected></option>' + uniqueTimeslots.map(timeslot => `<option>${timeslot}</option>`).join("");
@@ -88,21 +92,52 @@ export async function initMovieShow(match) {
   
     // Event listener for timeslot selector
   timeslotselection.addEventListener("change", function () {
-    const selectedTimeslot = timeslotselection.value;
+    const selectedTimeslot = parseInt(timeslotselection.value);
+    //console.log(typeof selectedTimeslot)
     const selectedDate = dateselection.value;
-
+        console.log(shows)
     // Find the show that matches both selected date and timeslot
     const selectedShow = shows.find(show => show.showingDate === selectedDate && show.timeslot === selectedTimeslot);
 
     if (selectedShow) {
       const movieShowId = selectedShow.id;
       console.log("Selected Movie Show ID:", movieShowId);
-      // Here I want to use movieShow.id to get the Theater
-      // when I have the Theater I know which modal to load
-      //when I have the modal I can get the seat...
-      //then I need to pass all the values back from the modal as a reservationrequest....
-    } else {
-      console.log("No matching show found for the selected date and timeslot.");
-    }
+      // Here I want to use movieShow.id to get the Theater - call function
+        const theater=parseInt(selectedShow.theater.id);
+        if(theater===1){
+            document.querySelector("#theater-2").style.display="none"
+           document.querySelector("#theater-1").style.display="block"
+           
+        }
+        if(theater===2){
+            document.querySelector("#theater-1").style.display="none"
+            document.querySelector("#theater-2").style.display="block"
+            
+         }
+        const btnString=`<button id="bookseat" class="btn btn-sm btn-primary" >Book Seat
+        </button>`;
+        console.log(btnString)
+        document.querySelector("#btn-mod").innerHTML= btnString
+        document.querySelector("#btn-mod").addEventListener("click",async function(evt){
+            const seatid=evt.target;
+            if(!seatid.include("t1-")||!seatid.include("t2-")){
+                return
+            }
+            const seat=seatid.split("-")[1]; //seatnumber
+            const reservationRequest={
+                seat:seat,
+                movieShowId:movieShowId,               
+                userId:HARDCODEDUSER
+            }
+            
+          const res=  await fetch(url_reservation,makeOptions("POST",reservationRequest)).then(r=>handleHttpErrors(r))
+
+            console.log(res)
+        });
+     
+      
+      
+    } 
   });
+
   }
