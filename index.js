@@ -56,7 +56,7 @@ import {
       },
       "/profile": () => {
         renderHtml(templateProfile, "content")
-        //initProfile()
+        initProfile()
       },
       "/reservations": () => {
         renderHtml(templateReservations, "content")
