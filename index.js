@@ -8,7 +8,8 @@ import {
 
   import { initHome } from "./pages/home/home.js"
   import { initSignup } from "./pages/signup/signup.js"
-  import {initBooking} from "./pages/reservations/reservations.js"
+  import { initMovie, setUpDeleteModal, deleteMovie, addMovie} from "./pages/movie/movie.js"
+  import { initMembers } from "./pages/members/members.js"  import {initBooking} from "./pages/reservations/reservations.js"
   import{initMovieShow} from "./pages/movieshow/movieshow.js"
 
     window.addEventListener("load", async () => {
@@ -21,6 +22,7 @@ import {
   const templateMovieshow = await loadHtml("./pages/movieshow/movieshow.html")
   const templateSignup = await loadHtml("./pages/signup/signup.html")
   const templateNotFound = await loadHtml("./pages/notFound/notFound.html")
+  const templateLogin = await loadHtml("./pages/login/login.html")
 
   //If token existed, for example after a refresh, set UI accordingly
   //const token = localStorage.getItem("token")
@@ -43,13 +45,16 @@ import {
         renderHtml(templateHome, "content")
         initHome();
       },
-      "/members": (match) => {
+      "/members": () => {
         renderHtml(templateMembers, "content")
-        //initMembers(match)
+        initMembers()
       },
       "/movie": (match) => {
         renderHtml(templateMovie, "content")
-        //initMovie()
+        initMovie()
+        deleteMovie()
+        setUpDeleteModal()
+        addMovie()
       },
       "/profile": () => {
         renderHtml(templateProfile, "content")
