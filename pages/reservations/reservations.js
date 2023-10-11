@@ -1,6 +1,6 @@
 import { API_URL } from "../../settings.js"
 import { handleHttpErrors, makeOptions, sanitizeStringWithTableRows} from "../../utility.js";
-const URL = API_URL + "/reservations/username1" //Hardcore user untill security is added
+const URL = API_URL + "/reservations"
 
 export async function initReservations(){
 
