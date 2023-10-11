@@ -8,9 +8,8 @@ import {
 
   import { initHome } from "./pages/home/home.js"
   import { initSignup } from "./pages/signup/signup.js"
-  import { initMovie, setUpDeleteModal, deleteMovie, addMovie} from "./pages/movie/movie.js"
+  import { initMovie } from "./pages/movie/movie.js"
   import { initMembers } from "./pages/members/members.js"  
-  import {initBooking} from "./pages/reservations/reservations.js"
   import{initMovieShow} from "./pages/movieshow/movieshow.js"
   import { initReservations } from "./pages/reservations/reservations.js"
 
