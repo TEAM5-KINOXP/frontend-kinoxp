@@ -5,6 +5,7 @@ const url = API_URL + "/movies";
 
 export async function initMovie() {
   const options = makeOptions("GET");
+
   const movies = await fetch(url, options).then(r =>handleHttpErrors(r));
 
   const tableRows = movies.map(movie => `
@@ -24,16 +25,16 @@ export async function initMovie() {
 }
 
 
+
 async function addMovie(){
     const imdbId = document.querySelector("#movie-imdb-id").value;
 
     const addURL = url + "/" + imdbId;
-
     const options = makeOptions("POST");
-
     const movie = await fetch(addURL, options).then(r => handleHttpErrors(r));
     window.location.reload();
 }
+
 async function setUpDeleteModal(e) {
     const btn = e.target;
 

@@ -39,4 +39,5 @@ async function deleteUser(username){
         console.log(error)
     }
     location.reload()
+
 }
