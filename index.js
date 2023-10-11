@@ -12,6 +12,7 @@ import {
   import { initMembers } from "./pages/members/members.js"  
   import {initBooking} from "./pages/reservations/reservations.js"
   import{initMovieShow} from "./pages/movieshow/movieshow.js"
+  import { initReservations } from "./pages/reservations/reservations.js"
 
     window.addEventListener("load", async () => {
 
@@ -53,9 +54,6 @@ import {
       "/movie": (match) => {
         renderHtml(templateMovie, "content")
         initMovie()
-        deleteMovie()
-        setUpDeleteModal()
-        addMovie()
       },
       "/profile": () => {
         renderHtml(templateProfile, "content")
@@ -63,7 +61,7 @@ import {
       },
       "/reservations": () => {
         renderHtml(templateReservations, "content")
-        initBooking()
+        initReservations()
       },
       "/movieshow": (match) => {
         renderHtml(templateMovieshow, "content")

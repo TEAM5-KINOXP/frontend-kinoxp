@@ -1,4 +1,32 @@
 <div class="template">
-    <h1>Booking</h1>
+    <h2>Reservation list</h2>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Movie Title</th>
+                <th>Reservation date</th>
+                <th>Seat number</th>
+                <th>Timeslot</th>
+            </tr>
+        </thead>
+        <tbody id="reservation-rows"></tbody>
+    </table>
 
+    <!--MODAL FOR DELETION-->
+    <div class="modal fade" id="cancel-modal" tabindex="-1" aria-labelledby="cancel-modal-label" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="cancel-modal-label"></h1>
+            </div>
+            <div class="modal-body">
+              Are you sure you want to cancel this reservation?
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              <button id="cancel-button" type="button" class="btn btn-primary">Cancel reservation</button>
+            </div>
+          </div>
+        </div>
+      </div>
 </div>

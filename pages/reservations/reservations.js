@@ -1,84 +1,46 @@
-import { handleHttpErrors, makeOptions } from "../../utility.js";
-import { API_URL } from "../../settings.js";
-const url = API_URL + "/shows";
-let shows=[];
+import { API_URL } from "../../settings.js"
+import { handleHttpErrors, makeOptions, sanitizeStringWithTableRows} from "../../utility.js";
+const URL = API_URL + "/reservations/username1" //Hardcore user untill security is added
 
-export async function initBooking() {
-   shows = await fetch(url).then(handleHttpErrors);
-  const filteredMovies = filterUniqueMovies(shows);
-  const moviePosters = filteredMovies
-    .map(
-      (show) => `
-        <div class="square" id="${show.movieId}_poster"style="width: 240px;height: 400px;;text-align: center;padding: 10px;margin: 30px;">
-            <div class="movie-title">${show.title}</div>
-                <a href ="/movie/${show.movieId}"><img src="data:image/png;base64,${show.posterImg}" alt="Movie Poster" class="movie-poster" 
-                style="max-height:100%; max-width:100%"></a>
-            <div class="first-date">${show.firstShowingDate}</div>
-            <div class="last-date">${show.lastShowingDate}</div>
-        </div>    
-    `
-    )
-    .join("");
-  document.querySelector("#movie-container").innerHTML = moviePosters;
-  document.querySelector("#movie-container").addEventListener("click",setupBookingModal)
+export async function initReservations(){
+
+    const reservations = await fetch(URL).then(handleHttpErrors)
+    const reservationRows = reservations.map(res => `
+        <tr>
+            <td>${res.movieTitle}</td>
+            <td>${res.reservationDate}</td>
+            <td>${res.seatId}</td>
+            <td>${res.timeslot}</td>
+            <td><button id="${res.movieTitle}_${res.reservationDate}_${res.seatId}_${res.timeslot}_${res.id}_res-info" class="btn btn-sm btn-danger cancel-button" data-bs-toggle="modal" 
+            data-bs-target="#cancel-modal">Cancel reservation</button></td>
+        </tr>
+    `).join("")
+    document.querySelector('#reservation-rows').innerHTML = sanitizeStringWithTableRows(reservationRows)
+    document.querySelector('#reservation-rows').addEventListener('click', setUpCancelModal)
 }
 
-function filterUniqueMovies(shows) {
-    const uniqueMovies = {};
-    const today = new Date().toISOString().split("T")[0];
-  
-    shows.forEach((item) => {
-      const movieId = item.movie.id;
-  
-      if (!uniqueMovies[movieId]) {
-        uniqueMovies[movieId] = {
-          movieId: item.movie.id,  
-          title: item.movie.title,
-          posterImg: item.movie.posterImg,
-          showingDates: {
-            showingDate:item.showingDate
-          }
-         // firstShowingDate: item.showingDate,
-         // lastShowingDate: item.showingDate,
-        };
-      }
-      
-    });
-    return Object.values(uniqueMovies).filter(
-      (movie) => movie.lastShowingDate >= today
-    );
-  }
-  async function setupBookingModal(evt) {
-    let showselection=[]
+async function setUpCancelModal(evt){
     const btn = evt.target
-    if (!btn.id.includes("_poster")) { //if not a poster thats pressed
-      return //return nothing
+    
+    if(!btn.id.includes("_res-info")){
+        return
     }
-  
-    const id = btn.id.split("_")[0]
-     showselection= shows.filter( show => show.movie.id == id)
-     const theater=showselection[0].theater.id
-    const headerText = `You have chosen the movie ${show.title} `
-    document.getElementById("reservation-modal-label").innerText = headerText
-   
-    carIdInput.value = id
-    carUsernameInput.value = ""
-    carReservationDate.value = ""
-    setStatusMsg("", false)
-    document.getElementById("btn-reservation").onclick = reserveCar
-  }
+    const movieTitle = btn.id.split("_")[0]
+    const reservationDate = btn.id.split("_")[1]
+    const seatId = btn.id.split("_")[2]
+    const timeslot = btn.id.split("_")[3]
+    const id = btn.id.split("_")[4]
+    const headerText = `Cancel reservation: <br> Movie - ${movieTitle} <br> ${reservationDate} <br> Seat - ${seatId} <br> Timeslot - ${timeslot}`
+    document.querySelector('#cancel-modal-label').innerHTML = headerText
 
-
-  /**
- * Set's the status message, either styled as an error, or as a normal message
- * @param {String} msg The status message to display
- * @param {boolean} [isError] true, to style in red
- * @param {String} [node] Use this to provide a node to set the error on. If left out, it will assume a node with the id 'status'
- */
-function setStatusMsg(msg, isError, node) {
-    const color = isError ? "red" : "darkgreen"
-    const statusNode = node ? document.getElementById(node) : document.getElementById("status")
-    statusNode.style.color = color
-    statusNode.innerText = msg
-  }
-  
+    document.querySelector('#cancel-button').addEventListener('click', async () => {await cancelReservation(id)})
+}
+async function cancelReservation(id){
+    try{
+    const DELETE_URL = API_URL + `/reservations/${id}`
+    await fetch(DELETE_URL, makeOptions("DELETE")).then(handleHttpErrors)
+    }catch(error){
+        console.log(error)
+    }
+    location.reload()
+}
