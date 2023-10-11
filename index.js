@@ -8,9 +8,12 @@ import {
 
   import { initHome } from "./pages/home/home.js"
   import { initSignup } from "./pages/signup/signup.js"
-  import { initMembers } from "./pages/members/members.js"
-  import { initMovie } from "./pages/movie/movie.js"
+  import { initMovie, setUpDeleteModal, deleteMovie, addMovie} from "./pages/movie/movie.js"
+  import { initMembers } from "./pages/members/members.js"  
+  import {initBooking} from "./pages/reservations/reservations.js"
+  import{initMovieShow} from "./pages/movieshow/movieshow.js"
   import { initReservations } from "./pages/reservations/reservations.js"
+
     window.addEventListener("load", async () => {
 
   const templateHome = await loadHtml("./pages/home/home.html")
@@ -18,9 +21,10 @@ import {
   const templateMovie = await loadHtml("./pages/movie/movie.html")
   const templateProfile = await loadHtml("./pages/profile/profile.html")
   const templateReservations = await loadHtml("./pages/reservations/reservations.html")
-  const templateSchedule = await loadHtml("./pages/schedule/schedule.html")
+  const templateMovieshow = await loadHtml("./pages/movieshow/movieshow.html")
   const templateSignup = await loadHtml("./pages/signup/signup.html")
   const templateNotFound = await loadHtml("./pages/notFound/notFound.html")
+  const templateLogin = await loadHtml("./pages/login/login.html")
 
   //If token existed, for example after a refresh, set UI accordingly
   //const token = localStorage.getItem("token")
@@ -59,8 +63,9 @@ import {
         renderHtml(templateReservations, "content")
         initReservations()
       },
-      "/schedule": () => {
-        renderHtml(templateSchedule, "content")
+      "/movieshow": (match) => {
+        renderHtml(templateMovieshow, "content")
+        initMovieShow(match)
       },
       "/signup": () => {
         renderHtml(templateSignup, "content")
