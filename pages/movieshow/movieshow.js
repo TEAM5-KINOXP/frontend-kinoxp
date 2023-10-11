@@ -87,6 +87,7 @@ export async function initMovieShow(match) {
           }
         document.querySelector("#btn-mod").innerHTML= btnString;
         document.getElementById("seat-listener").addEventListener("click",seathandler); 
+        document.getElementById("seat-listener").addEventListener("mouseover",colorReservedSeats); 
         document.querySelector("#btn-mod").addEventListener("click",makeReservation);
       
     } 
@@ -100,16 +101,20 @@ export async function initMovieShow(match) {
       }catch(err){
           console.log(err)
         }
+        
+}
+async function colorReservedSeats(){
+    //color all reserved seat:
+    const seats= document.querySelectorAll("rect")
+    const reservedSeats= await getReservedSeats();
+    for (let i=0;i<reservedSeats.length;i++){
+     let index=parseInt(reservedSeats[i].seatId)
+       document.getElementById(seats[index-1].id).style.fill="red"
+    }
 }
  async  function seathandler(evt){
-    //color all reserved seat:
-  const seats= document.querySelectorAll("rect")
-   const reservedSeats= await getReservedSeats();
-   for (let i=0;i<reservedSeats.length;i++){
-    let index=parseInt(reservedSeats[i].seatId)
-      document.getElementById(seats[index].id).style.fill="red"
-   }
-   const seatId=reservedSeats.seatId
+  
+   
     const pressed=evt.target;
     const id=pressed.id;
     if(!id.includes("t1-")&&!id.includes("t2-")){
