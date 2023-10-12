@@ -10,11 +10,11 @@ import {
   import { initSignup } from "./pages/signup/signup.js"
   import { initMovie } from "./pages/movie/movie.js"
   import { initMembers } from "./pages/members/members.js"  
-  import {initMovieShow} from "./pages/movieshow/movieshow.js"
+  import { initMovieShow } from "./pages/movieshow/movieshow.js"
   import { initReservations } from "./pages/reservations/reservations.js"
   import { initSchedule } from "./pages/admin/schedule/schedule.js"
   import { initProfile } from "./pages/profile/profile.js"
-  import { initLogin } from "./pages/login/login.js"
+  import { initLogin, toggleLoginStatus, logout } from "./pages/login/login.js"
 
     window.addEventListener("load", async () => {
 
@@ -28,9 +28,10 @@ import {
   const templateNotFound = await loadHtml("./pages/notFound/notFound.html")
   const templateLogin = await loadHtml("./pages/login/login.html")
   const templateSchedule = await loadHtml("./pages/admin/schedule/schedule.html")
+  
   //If token existed, for example after a refresh, set UI accordingly
-  //const token = localStorage.getItem("token")
-  //toggleLoginStatus(token) <--- ADD THIS WHEN SECURITY GETS ADDED
+  const token = localStorage.getItem("token")
+  toggleLoginStatus(token) //<!-- ADD THIS WHEN SECURITY GETS ADDED -->
 
  const router = new Navigo("/", { hash: true });
   //Not especially nice, BUT MEANT to simplify things. Make the router global so it can be accessed from all js-files
@@ -79,7 +80,7 @@ import {
       }, 
       "/logout": () => {
         renderHtml(templateLogin, "content")
-        //logout()
+        logout()
       },
       "/admin/schedule": () => {
         renderHtml(templateSchedule, "content")

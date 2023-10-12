@@ -30,8 +30,12 @@ export async function initHome() {
   
     if (target) {
       const id = target.id.split("_")[0];
-      router.navigate(`/movieshow/?id=${id}`);
-    }
+        if(localStorage.getItem("roles") == "USER"){
+          router.navigate(`/movieshow/?id=${id}`);
+        } else {
+          router.navigate(`/login`);
+        }      
+      }
   });
   
   

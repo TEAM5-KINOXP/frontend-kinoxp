@@ -37,13 +37,13 @@ async function login() {
     localStorage.setItem("user", res.username)
     localStorage.setItem("roles", res.roles)
     //Update UI
-    //toggleLoginStatus(true)
+    toggleLoginStatus(true)
   }
   export function logout() {
   localStorage.removeItem("token")
   localStorage.removeItem("user")
   localStorage.removeItem("roles")
-  //toggleLoginStatus(false)
+  toggleLoginStatus(false)
   window.router.navigate("login")
 }
 
