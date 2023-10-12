@@ -1,41 +1,56 @@
 <div class="template">
-    <h1>Movies</h1>
-    <form id="form" style="max-width: 800px;">
-      <div class="row">
-        <div class="col-md-2">
-          <label for="showing-date-input">Showing Date:</label>
+    <h1>Movie Schedule</h1>
+
+    <form id="form" style="max-width: 300px;">
+        <div class="row">
+            <div class="col-md-2">
+                <label for="showing-date-input">Show date</label>
+            </div>
+            <div class="col-md-10">
+                <input type="date" id="showing-date-input"  style="width: 100%;">
+            </div>
+            <div class="col-md-2">
+                <label for="imdb-id-input">IMDB ID</label>
+            </div>
+            <div class="col-md-10">
+              <select id="imdb-id-input" style="width: 100%;">
+              
+              </select>
+            </div>
+            <div class="col-md-2">
+                <label for="theater-id-input">Theater ID</label>
+            </div>
+            <div class="col-md-10">
+                <select id="theater-id-input" style="width: 100%;">
+                    <option value="" selected disabled>Select Theater</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                </select>
+            </div>
+            <div class="col-md-2">
+                <label for="timeslot-input">Timeslot</label>
+            </div>
+            <div class="col-md-10">
+                <select id="timeslot-input" style="width: 100%;">
+                    <option value="" selected disabled>Select Timeslot</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                </select>
+            </div>
         </div>
-        <div class="col-md-10">
-          <input id="showing-date-input" >
-        </div>
-        <div class="col-md-2">
-            <label for="imdb-id-input">IMDB ID</label>
-          </div>
-          <div class="col-md-10">
-            <input id="imdb-id-input" >
-          </div>
-          <div class="col-md-2">
-            <label for="theater-id-input">Theater ID</label>
-          </div>
-          <div class="col-md-10">
-            <input id="theater-id-input" >
-          </div>
-          <div class="col-md-2">
-            <label for="timeslot-input">Timeslot</label>
-          </div>
-          <div class="col-md-10">
-            <input id="timeslot-input" >
-          </div>
-      </div>
-      <button id="btn-submit-movieshow" class="btn btn-dark mt-2">add new movieshow</button>
+        <button id="btn-submit-movieshow" class="btn btn-dark mt-2">Add new movieshow</button>
     </form>
         <table class="table">
           <thead>
             <tr>
               <th>ID</th>
+              <th>Showing Date</th>
               <th>Theater ID</th>
+              <th>Movie Title</th>
               <th>Timeslot</th>
               <th>Actions</th>
+              
             </tr>
           </thead>
           <tbody id="table-rows"></tbody>
