@@ -15,7 +15,7 @@ let reservedSeats=[];
 let selectedShow;
 let reciept;
 
-const HARDCODEDUSER="username1"
+const user=localStorage.getItem(user)
 
 let shows=[]
 
@@ -111,7 +111,16 @@ export async function initMovieShow(match) {
    
 
     document.querySelector("#complete-booking").addEventListener("click",makeReservation)
+    document.querySelector("#cancel-booking").addEventListener("click",clearbooking)
   
+function clearbooking(){
+    document.querySelector("#booking-reciept").style.display="none";
+    document.querySelector("#timeslot").value="";
+    document.querySelector("#movie-title").value="";
+    document.querySelector("#showing-date").value=""
+    document.querySelector("#seat-number").value="";
+}
+
   }
 
     async function getReservedSeats(){
@@ -152,11 +161,11 @@ async function colorReservedSeats(){
     
     }
     async function makeReservation(){
-      console.log("makeReservation")
+      clearbooking;
         reservationRequest={
             seatNumber:seatnumber,
             movieShowId:movieShowId,          
-            userName:HARDCODEDUSER
+            userName:user
         }
         console.log(reservationRequest)
         try{

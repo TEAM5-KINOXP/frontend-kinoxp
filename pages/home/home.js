@@ -30,6 +30,7 @@ export async function initHome() {
   
     if (target) {
       const id = target.id.split("_")[0];
+      
       router.navigate(`/movieshow/?id=${id}`);
     }
   });
