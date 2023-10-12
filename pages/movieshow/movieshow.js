@@ -22,7 +22,7 @@ let shows=[]
 export async function initMovieShow(match) {
   console.log("initMovieShow")
     const movieId = match.params.id;
-     shows = await fetch(url + movieId).then(r => handleHttpErrors(r));
+     shows = await fetch(url + movieId, makeOptions("GET",null, true)).then(r => handleHttpErrors(r));
   
     // Populate movie info fields
     const poster = `<img  src="data:image/png;base64,${shows[0].movie.posterImg}" alt="Movie Poster" class="movie-poster" style="max-height:100%; max-width:100%">`;
