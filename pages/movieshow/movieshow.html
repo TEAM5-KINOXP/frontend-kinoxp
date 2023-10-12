@@ -1,840 +1,847 @@
 <div class="template">
-     <!--place Modal one below this line-->
-     <div class="modal fade" id="booking-reciept" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <div class="modal-body">
-              <p id="booking-message">
-               
-              </p>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-              <button id="complete-booking" type="button" class="btn btn-primary">Complete Booking</button>
-            </div>
-          </div>
-        </div>
-      </div>
+    
     <h1>MovieShow</h1>
-    <div id="movie-container" style="display: flex;justify-content: space-evenly;align-items: flex-start;">
-        <div id="movie-selected" class="square"  style="width: 40%;height: 80%;;text-align: center;padding: 10px;margin: 30px;">
-            
-			<div id="movie-poster">
+    <div class = "container-fluid" id="movie-container">
+        <div class="row">
+            <div id="movie-selected" class="col" style="margin: 4">
                 
-			</div>
-           
-        </div>  
-		<div class="square"  style="width: 45%;height: 90%;text-align: center;padding: 10px;margin: 30px;">
-		
-            <div id="movie-title"></div>
-            <p id="description">Short description of the movie goes here...</p>
-            <h4>Please select date:</h4>
-            <select id="date-selector">
-                
-                
-            </select>
-            
-            <br/>
-            <br/>
-            
-            <h4>Please timeslot:</h4>
-            <select id="timeslot-selector">
-                
-            </select>
-            
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <div id="btn-mod" style="display:block;">
-            </div>
-            <div id="seat-listener">
-                
-                <section>
-                <div id="theater-1" style="display: none;width:50%; height: auto;">
-                    <svg width="800" height="800" xmlns="http://www.w3.org/2000/svg">
-                        <!-- Create the rows and t1s -->
-                        <g id="small-theater">
-                            <!-- Rows -->
-                            <line x1="" y1="12.5" x2="220" y2="12.5" stroke="black" stroke-width="2" />
-                
-                            <g transform="translate(20, 30)">
-                                <rect id="t1-1" width="10" height="10" fill="gray" stroke="black" stroke-width="1" />
-                                <rect id="t1-2" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="15" />
-                                <rect id="t1-3" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="30" />
-                                <rect id="t1-4" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="45" />
-                                <rect id="t1-5" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="60" />
-                                <rect id="t1-6" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="75" />
-                                <rect id="t1-7" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="90" />
-                                <rect id="t1-8" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="105" />
-                                <rect id="t1-9" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="120" />
-                                <rect id="t1-10" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="135" />
-                                <rect id="t1-11" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="150" />
-                                <rect id="t1-12" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="165" />
-                             </g>
-                
-                            
-                            <g transform="translate(20, 45)">
-                                <rect id="t1-13" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="0" />
-                                <rect id="t1-14" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="15" />
-                                <rect id="t1-15" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="30" />
-                                <rect id="t1-16" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="45" />
-                                <rect id="t1-17" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="60" />
-                                <rect id="t1-18" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="75" />
-                                <rect id="t1-19" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="90" />
-                                <rect id="t1-20" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="105" />
-                                <rect id="t1-21" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="120" />
-                                <rect id="t1-22" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="135" />
-                                <rect id="t1-23" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="150" />
-                                <rect id="t1-24" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="165" />
-                            </g>
-                            <g transform="translate(20, 60)">
-                                <rect id="t1-25" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="0" />
-                                <rect id="t1-26" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="15" />
-                                <rect id="t1-27" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="30" />
-                                <rect id="t1-28" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="45" />
-                                <rect id="t1-29" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="60" />
-                                <rect id="t1-30" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="75" />
-                                <rect id="t1-31" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="90" />
-                                <rect id="t1-32" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="105" />
-                                <rect id="t1-33" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="120" />
-                                <rect id="t1-34" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="135" />
-                                <rect id="t1-35" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="150" />
-                                <rect id="t1-36" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="165" />
-                            </g>
-                            <g transform="translate(20, 75)">
-                                <rect id="t1-37" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="0" />
-                                <rect id="t1-38" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="15" />
-                                <rect id="t1-39" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="30" />
-                                <rect id="t1-40" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="45" />
-                                <rect id="t1-41" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="60" />
-                                <rect id="t1-42" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="75" />
-                                <rect id="t1-43" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="90" />
-                                <rect id="t1-44" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="105" />
-                                <rect id="t1-45" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="120" />
-                                <rect id="t1-46" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="135" />
-                                <rect id="t1-47" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="150" />
-                                <rect id="t1-48" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="165" />
-                            </g>
-                            <g transform="translate(20, 90)">
-                                <rect id="t1-49" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="0" />
-                                <rect id="t1-50" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="15" />
-                                <rect id="t1-51" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="30" />
-                                <rect id="t1-52" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="45" />
-                                <rect id="t1-53" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="60" />
-                                <rect id="t1-54" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="75" />
-                                <rect id="t1-55" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="90" />
-                                <rect id="t1-56" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="105" />
-                                <rect id="t1-57" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="120" />
-                                <rect id="t1-58" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="135" />
-                                <rect id="t1-59" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="150" />
-                                <rect id="t1-60" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="165" />
-                            </g>
-                            <g transform="translate(20, 105)">
-                                <rect id="t1-61" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="0" />
-                                <rect id="t1-62" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="15" />
-                                <rect id="t1-63" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="30" />
-                                <rect id="t1-64" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="45" />
-                                <rect id="t1-65" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="60" />
-                                <rect id="t1-66" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="75" />
-                                <rect id="t1-67" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="90" />
-                                <rect id="t1-68" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="105" />
-                                <rect id="t1-69" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="120" />
-                                <rect id="t1-70" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="135" />
-                                <rect id="t1-71" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="150" />
-                                <rect id="t1-72" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="165" />
-                            </g>
-                            <g transform="translate(20, 120)">
-                                <rect id="t1-73" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="0" />
-                                <rect id="t1-74" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="15" />
-                                <rect id="t1-75" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="30" />
-                                <rect id="t1-76" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="45" />
-                                <rect id="t1-77" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="60" />
-                                <rect id="t1-78" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="75" />
-                                <rect id="t1-79" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="90" />
-                                <rect id="t1-80" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="105" />
-                                <rect id="t1-81" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="120" />
-                                <rect id="t1-82" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="135" />
-                                <rect id="t1-83" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="150" />
-                                <rect id="t1-84" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="165" />
-                            </g>
-                            <g transform="translate(20, 135)">
-                                <rect id="t1-85" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="0" />
-                                <rect id="t1-86" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="15" />
-                                <rect id="t1-87" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="30" />
-                                <rect id="t1-88" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="45" />
-                                <rect id="t1-89" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="60" />
-                                <rect id="t1-90" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="75" />
-                                <rect id="t1-91" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="90" />
-                                <rect id="t1-92" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="105" />
-                                <rect id="t1-93" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="120" />
-                                <rect id="t1-94" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="135" />
-                                <rect id="t1-95" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="150" />
-                                <rect id="t1-96" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="165" />
-                            </g>
-                            <g transform="translate(20, 150)">
-                                <rect id="t1-97" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="0" />
-                                <rect id="t1-98" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="15" />
-                                <rect id="t1-99" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="30" />
-                                <rect id="t1-100" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="45" />
-                                <rect id="t1-101" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="60" />
-                                <rect id="t1-102" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="75" />
-                                <rect id="t1-103" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="90" />
-                                <rect id="t1-104" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="105" />
-                                <rect id="t1-105" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="120" />
-                                <rect id="t1-106" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="135" />
-                                <rect id="t1-107" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="150" />
-                                <rect id="t1-108" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="165" />
-                            </g>
-                            <g transform="translate(20, 165)">
-                                <rect id="t1-109" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="0" />
-                                <rect id="t1-110" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="15" />
-                                <rect id="t1-111" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="30" />
-                                <rect id="t1-112" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="45" />
-                                <rect id="t1-113" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="60" />
-                                <rect id="t1-114" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="75" />
-                                <rect id="t1-115" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="90" />
-                                <rect id="t1-116" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="105" />
-                                <rect id="t1-117" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="120" />
-                                <rect id="t1-118" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="135" />
-                                <rect id="t1-119" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="150" />
-                                <rect id="t1-120" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="165" />
-                            </g>
-                            <g transform="translate(20, 180)">
-                                <rect id="t1-121" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="0" />
-                                <rect id="t1-122" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="15" />
-                                <rect id="t1-123" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="30" />
-                                <rect id="t1-124" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="45" />
-                                <rect id="t1-125" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="60" />
-                                <rect id="t1-126" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="75" />
-                                <rect id="t1-127" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="90" />
-                                <rect id="t1-128" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="105" />
-                                <rect id="t1-129" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="120" />
-                                <rect id="t1-130" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="135" />
-                                <rect id="t1-131" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="150" />
-                                <rect id="t1-132" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="165" />
-                            </g>
-                            <g transform="translate(20, 195)">
-                                <rect id="t1-133" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="0" />
-                                <rect id="t1-134" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="15" />
-                                <rect id="t1-135" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="30" />
-                                <rect id="t1-136" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="45" />
-                                <rect id="t1-137" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="60" />
-                                <rect id="t1-138" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="75" />
-                                <rect id="t1-139" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="90" />
-                                <rect id="t1-140" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="105" />
-                                <rect id="t1-141" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="120" />
-                                <rect id="t1-142" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="135" />
-                                <rect id="t1-143" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="150" />
-                                <rect id="t1-144" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="165" />
-                            </g>
-                            <g transform="translate(20, 210)">
-                                <rect id="t1-145" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="0" />
-                                <rect id="t1-146" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="15" />
-                                <rect id="t1-147" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="30" />
-                                <rect id="t1-148" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="45" />
-                                <rect id="t1-149" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="60" />
-                                <rect id="t1-150" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="75" />
-                                <rect id="t1-151" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="90" />
-                                <rect id="t1-152" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="105" />
-                                <rect id="t1-153" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="120" />
-                                <rect id="t1-154" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="135" />
-                                <rect id="t1-155" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="150" />
-                                <rect id="t1-156" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="165" />
-                            </g>
-                            <g transform="translate(20, 225)">
-                                <rect id="t1-157" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="0" />
-                                <rect id="t1-158" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="15" />
-                                <rect id="t1-159" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="30" />
-                                <rect id="t1-160" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="45" />
-                                <rect id="t1-161" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="60" />
-                                <rect id="t1-162" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="75" />
-                                <rect id="t1-163" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="90" />
-                                <rect id="t1-164" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="105" />
-                                <rect id="t1-165" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="120" />
-                                <rect id="t1-166" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="135" />
-                                <rect id="t1-167" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="150" />
-                                <rect id="t1-168" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="165" />
-                            </g>
-                            <g transform="translate(20, 240)">
-                                <rect id="t1-169" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="0" />
-                                <rect id="t1-170" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="15" />
-                                <rect id="t1-171" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="30" />
-                                <rect id="t1-172" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="45" />
-                                <rect id="t1-173" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="60" />
-                                <rect id="t1-174" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="75" />
-                                <rect id="t1-175" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="90" />
-                                <rect id="t1-176" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="105" />
-                                <rect id="t1-177" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="120" />
-                                <rect id="t1-178" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="135" />
-                                <rect id="t1-179" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="150" />
-                                <rect id="t1-180" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="165" />
-                            </g>
-                            <g transform="translate(20, 255)">
-                                <rect id="t1-181" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="0" />
-                                <rect id="t1-182" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="15" />
-                                <rect id="t1-183" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="30" />
-                                <rect id="t1-184" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="45" />
-                                <rect id="t1-185" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="60" />
-                                <rect id="t1-186" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="75" />
-                                <rect id="t1-187" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="90" />
-                                <rect id="t1-188" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="105" />
-                                <rect id="t1-189" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="120" />
-                                <rect id="t1-190" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="135" />
-                                <rect id="t1-191" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="150" />
-                                <rect id="t1-192" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="165" />
-                            </g>
-                            <g transform="translate(20, 270)">
-                                <rect id="t1-193" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="0" />
-                                <rect id="t1-194" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="15" />
-                                <rect id="t1-195" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="30" />
-                                <rect id="t1-196" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="45" />
-                                <rect id="t1-197" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="60" />
-                                <rect id="t1-198" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="75" />
-                                <rect id="t1-199" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="90" />
-                                <rect id="t1-200" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="105" />
-                                <rect id="t1-201" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="120" />
-                                <rect id="t1-202" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="135" />
-                                <rect id="t1-203" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="150" />
-                                <rect id="t1-204" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="165" />
-                            </g>
-                            <g transform="translate(20, 285)">
-                                <rect id="t1-205" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="0" />
-                                <rect id="t1-206" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="15" />
-                                <rect id="t1-207" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="30" />
-                                <rect id="t1-208" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="45" />
-                                <rect id="t1-209" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="60" />
-                                <rect id="t1-210" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="75" />
-                                <rect id="t1-211" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="90" />
-                                <rect id="t1-212" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="105" />
-                                <rect id="t1-213" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="120" />
-                                <rect id="t1-214" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="135" />
-                                <rect id="t1-215" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="150" />
-                                <rect id="t1-216" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="165" />
-                            </g>
-                            <g transform="translate(20, 300)">
-                                <rect id="t1-217" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="0" />
-                                <rect id="t1-218" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="15" />
-                                <rect id="t1-219" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="30" />
-                                <rect id="t1-220" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="45" />
-                                <rect id="t1-221" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="60" />
-                                <rect id="t1-222" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="75" />
-                                <rect id="t1-223" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="90" />
-                                <rect id="t1-224" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="105" />
-                                <rect id="t1-225" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="120" />
-                                <rect id="t1-226" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="135" />
-                                <rect id="t1-227" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="150" />
-                                <rect id="t1-228" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="165" />
-                            </g>
-                            <g transform="translate(20, 315)">
-                                <rect id="t1-229" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="0" />
-                                <rect id="t1-230" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="15" />
-                                <rect id="t1-231" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="30" />
-                                <rect id="t1-232" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="45" />
-                                <rect id="t1-233" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="60" />
-                                <rect id="t1-234" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="75" />
-                                <rect id="t1-235" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="90" />
-                                <rect id="t1-236" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="105" />
-                                <rect id="t1-237" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="120" />
-                                <rect id="t1-238" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="135" />
-                                <rect id="t1-239" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="150" />
-                                <rect id="t1-240" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="165" />
-                            </g>
-                        </g>
-                    </svg>                
-
-                </div>
-                
-                <div id="theater-2" style="display: none;width:50%; height: au;">                    
-                    <svg width="800" height="800" xmlns="http://www.w3.org/2000/svg">
-                       
-                        <g id="big-theater">
-                           
-                            <line x1="" y1="12.5" x2="275" y2="12.5" stroke="black" stroke-width="2" />
-                
-                            <g transform="translate(20, 30)">
-                                <rect id="t2-1" width="10" height="10" fill="gray" stroke="black" stroke-width="1" />
-                                <rect id="t2-2" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="15" />
-                                <rect id="t2-3" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="30" />
-                                <rect id="t2-4" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="45" />
-                                <rect id="t2-5" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="60" />
-                                <rect id="t2-6" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="75" />
-                                <rect id="t2-7" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="90" />
-                                <rect id="t2-8" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="105" />
-                                <rect id="t2-9" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="120" />
-                                <rect id="t2-10" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="135" />
-                                <rect id="t2-11" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="150" />
-                                <rect id="t2-12" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="165" />
-                                <rect id="t2-13" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="180" />
-                                <rect id="t2-14" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="195" />
-                                <rect id="t2-15" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="210" />
-                                <rect id="t2-16" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="225" />
-                                
-                            </g>
-                
-                            
-                            <g transform="translate(20, 45)">
-                                <rect id="t2-17" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="0" />
-                                <rect id="t2-18" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="15" />
-                                <rect id="t2-19" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="30" />
-                                <rect id="t2-20" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="45" />
-                                <rect id="t2-21" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="60" />
-                                <rect id="t2-22" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="75" />
-                                <rect id="t2-23" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="90" />
-                                <rect id="t2-24" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="105" />
-                                <rect id="t2-25" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="120" />
-                                <rect id="t2-26" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="135" />
-                                <rect id="t2-27" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="150" />
-                                <rect id="t2-28" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="165" />
-                                <rect id="t2-29" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="180" />
-                                <rect id="t2-30" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="195" />
-                                <rect id="t2-31" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="210" />
-                                <rect id="t2-32" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="225" />
-                            </g>
-                            <g transform="translate(20, 60)">
-                                <rect id="t2-33" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="0" />
-                                <rect id="t2-34" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="15" />
-                                <rect id="t2-35" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="30" />
-                                <rect id="t2-36" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="45" />
-                                <rect id="t2-37" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="60" />
-                                <rect id="t2-38" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="75" />
-                                <rect id="t2-39" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="90" />
-                                <rect id="t2-40" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="105" />
-                                <rect id="t2-41" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="120" />
-                                <rect id="t2-42" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="135" />
-                                <rect id="t2-43" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="150" />
-                                <rect id="t2-44" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="165" />
-                                <rect id="t2-45" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="180" />
-                                <rect id="t2-46" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="195" />
-                                <rect id="t2-47" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="210" />
-                                <rect id="t2-48" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="225" />
-                            </g>
-                            <g transform="translate(20, 75)">
-                                <rect id="t2-49" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="0" />
-                                <rect id="t2-50" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="15" />
-                                <rect id="t2-51" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="30" />
-                                <rect id="t2-52" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="45" />
-                                <rect id="t2-53" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="60" />
-                                <rect id="t2-54" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="75" />
-                                <rect id="t2-55" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="90" />
-                                <rect id="t2-56" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="105" />
-                                <rect id="t2-57" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="120" />
-                                <rect id="t2-58" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="135" />
-                                <rect id="t2-59" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="150" />
-                                <rect id="t2-60" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="165" />
-                                <rect id="t2-61" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="180" />
-                                <rect id="t2-62" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="195" />
-                                <rect id="t2-63" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="210" />
-                                <rect id="t2-64" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="225" />            </g>
-                            <g transform="translate(20, 90)">
-                                <rect id="t2-65" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="0" />
-                                <rect id="t2-66" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="15" />
-                                <rect id="t2-67" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="30" />
-                                <rect id="t2-68" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="45" />
-                                <rect id="t2-69" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="60" />
-                                <rect id="t2-70" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="75" />
-                                <rect id="t2-71" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="90" />
-                                <rect id="t2-72" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="105" />
-                                <rect id="t2-73" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="120" />
-                                <rect id="t2-74" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="135" />
-                                <rect id="t2-75" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="150" />
-                                <rect id="t2-76" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="165" />
-                                <rect id="t2-77" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="180" />
-                                <rect id="t2-78" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="195" />
-                                <rect id="t2-79" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="210" />
-                                <rect id="t2-80" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="225" />
-                                
-                
-                            </g>
-                            <g transform="translate(20, 105)">
-                                <rect id="t2-81" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="0" />
-                                <rect id="t2-82" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="15" />
-                                <rect id="t2-83" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="30" />
-                                <rect id="t2-84" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="45" />
-                                <rect id="t2-85" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="60" />
-                                <rect id="t2-86" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="75" />
-                                <rect id="t2-87" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="90" />
-                                <rect id="t2-88" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="105" />
-                                <rect id="t2-89" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="120" />
-                                <rect id="t2-90" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="135" />
-                                <rect id="t2-91" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="150" />
-                                <rect id="t2-92" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="165" />
-                                <rect id="t2-93" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="180" />
-                                <rect id="t2-94" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="195" />
-                                <rect id="t2-95" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="210" />
-                                <rect id="t2-96" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="225" />
-                
-                
-                            </g>
-                            <g transform="translate(20, 120)">
-                                <rect id="t2-97" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="0" />
-                                <rect id="t2-98" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="15" />
-                                <rect id="t2-99" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="30" />
-                                <rect id="t2-100" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="45" />
-                                <rect id="t2-101" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="60" />
-                                <rect id="t2-102" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="75" />
-                                <rect id="t2-103" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="90" />
-                                <rect id="t2-104" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="105" />
-                                <rect id="t2-105" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="120" />
-                                <rect id="t2-106" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="135" />
-                                <rect id="t2-107" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="150" />
-                                <rect id="t2-108" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="165" />
-                                <rect id="t2-109" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="180" />
-                                <rect id="t2-110" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="195" />
-                                <rect id="t2-111" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="210" />
-                                <rect id="t2-112" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="225" />
-                            </g>
-                            <g transform="translate(20, 135)">
-                                <rect id="t2-113" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="0" />
-                                <rect id="t2-114" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="15" />
-                                <rect id="t2-115" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="30" />
-                                <rect id="t2-116" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="45" />
-                                <rect id="t2-117" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="60" />
-                                <rect id="t2-118" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="75" />
-                                <rect id="t2-119" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="90" />
-                                <rect id="t2-120" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="105" />
-                                <rect id="t2-121" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="120" />
-                                <rect id="t2-122" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="135" />
-                                <rect id="t2-123" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="150" />
-                                <rect id="t2-124" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="165" />
-                                <rect id="t2-125" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="180" />
-                                <rect id="t2-126" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="195" />
-                                <rect id="t2-127" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="210" />
-                                <rect id="t2-128" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="225" />
-                            </g>
-                            <g transform="translate(20, 150)">
-                                <rect id="t2-129" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="0" />
-                                <rect id="t2-130" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="15" />
-                                <rect id="t2-131" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="30" />
-                                <rect id="t2-132" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="45" />
-                                <rect id="t2-133" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="60" />
-                                <rect id="t2-134" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="75" />
-                                <rect id="t2-135" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="90" />
-                                <rect id="t2-136" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="105" />
-                                <rect id="t2-137" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="120" />
-                                <rect id="t2-138" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="135" />
-                                <rect id="t2-139" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="150" />
-                                <rect id="t2-140" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="165" />
-                                <rect id="t2-141" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="180" />
-                                <rect id="t2-142" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="195" />
-                                <rect id="t2-143" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="210" />
-                                <rect id="t2-144" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="225" />
-                            </g>
-                            <g transform="translate(20, 165)">
-                                <rect id="t2-145" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="0" />
-                                <rect id="t2-146" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="15" />
-                                <rect id="t2-147" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="30" />
-                                <rect id="t2-148" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="45" />
-                                <rect id="t2-149" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="60" />
-                                <rect id="t2-150" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="75" />
-                                <rect id="t2-151" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="90" />
-                                <rect id="t2-152" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="105" />
-                                <rect id="t2-153" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="120" />
-                                <rect id="t2-154" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="135" />
-                                <rect id="t2-155" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="150" />
-                                <rect id="t2-156" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="165" />
-                                <rect id="t2-157" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="180" />
-                                <rect id="t2-158" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="195" />
-                                <rect id="t2-159" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="210" />
-                                <rect id="t2-160" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="225" />
-                                </g>
-                            <g transform="translate(20, 180)">
-                                <rect id="t2-161" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="0" />
-                                <rect id="t2-162" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="15" />
-                                <rect id="t2-163" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="30" />
-                                <rect id="t2-164" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="45" />
-                                <rect id="t2-165" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="60" />
-                                <rect id="t2-166" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="75" />
-                                <rect id="t2-167" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="90" />
-                                <rect id="t2-168" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="105" />
-                                <rect id="t2-169" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="120" />
-                                <rect id="t2-170" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="135" />
-                                <rect id="t2-171" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="150" />
-                                <rect id="t2-172" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="165" />
-                                <rect id="t2-173" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="180" />
-                                <rect id="t2-174" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="195" />
-                                <rect id="t2-175" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="210" />
-                                <rect id="t2-176" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="225" />
-                                </g>
-                            <g transform="translate(20, 195)">
-                                <rect id="t2-177" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="0" />
-                                <rect id="t2-178" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="15" />
-                                <rect id="t2-179" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="30" />
-                                <rect id="t2-180" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="45" />
-                                <rect id="t2-181" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="60" />
-                                <rect id="t2-182" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="75" />
-                                <rect id="t2-183" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="90" />
-                                <rect id="t2-184" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="105" />
-                                <rect id="t2-185" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="120" />
-                                <rect id="t2-186" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="135" />
-                                <rect id="t2-187" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="150" />
-                                <rect id="t2-188" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="165" />
-                                <rect id="t2-189" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="180" />
-                                <rect id="t2-190" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="195" />
-                                <rect id="t2-191" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="210" />
-                                <rect id="t2-192" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="225" />
-                                </g>
-                            <g transform="translate(20, 210)">
-                                <rect id="t2-193" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="0" />
-                                <rect id="t2-194" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="15" />
-                                <rect id="t2-195" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="30" />
-                                <rect id="t2-196" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="45" />
-                                <rect id="t2-197" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="60" />
-                                <rect id="t2-198" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="75" />
-                                <rect id="t2-199" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="90" />
-                                <rect id="t2-200" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="105" />
-                                <rect id="t2-201" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="120" />
-                                <rect id="t2-202" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="135" />
-                                <rect id="t2-203" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="150" />
-                                <rect id="t2-204" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="165" />
-                                <rect id="t2-205" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="180" />
-                                <rect id="t2-206" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="195" />
-                                <rect id="t2-207" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="210" />
-                                <rect id="t2-208" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="225" />
-                                
-                                </g>
-                            <g transform="translate(20, 225)">
-                                
-                                <rect id="t2-209" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="0" />
-                                <rect id="t2-210" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="15" />
-                                <rect id="t2-211" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="30" />
-                                <rect id="t2-212" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="45" />
-                                <rect id="t2-213" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="60" />
-                                <rect id="t2-214" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="75" />
-                                <rect id="t2-215" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="90" />
-                                <rect id="t2-216" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="105" />
-                                <rect id="t2-217" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="120" />
-                                <rect id="t2-218" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="135" />
-                                <rect id="t2-219" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="150" />
-                                <rect id="t2-220" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="165" />
-                                <rect id="t2-221" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="180" />
-                                <rect id="t2-222" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="195" />
-                                <rect id="t2-223" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="210" />
-                                <rect id="t2-224" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="225" />
-                                
-                            </g>
-                            <g transform="translate(20, 240)">
-                                <rect id="t2-225" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="0" />
-                                <rect id="t2-226" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="15" />
-                                <rect id="t2-227" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="30" />
-                                <rect id="t2-228" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="45" />
-                                <rect id="t2-229" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="60" />
-                                <rect id="t2-230" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="75" />
-                                <rect id="t2-231" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="90" />
-                                <rect id="t2-232" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="105" />
-                                <rect id="t2-233" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="120" />
-                                <rect id="t2-234" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="135" />
-                                <rect id="t2-235" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="150" />
-                                <rect id="t2-236" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="165" />
-                                <rect id="t2-237" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="180" />
-                                <rect id="t2-238" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="195" />
-                                <rect id="t2-239" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="210" />
-                                <rect id="t2-240" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="225" />                
-                            </g>
-                            <g transform="translate(20, 255)">
-                                <rect id="t2-241" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="0" />
-                                <rect id="t2-242" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="15" />
-                                <rect id="t2-243" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="30" />
-                                <rect id="t2-244" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="45" />
-                                <rect id="t2-245" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="60" />
-                                <rect id="t2-246" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="75" />
-                                <rect id="t2-247" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="90" />
-                                <rect id="t2-248" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="105" />
-                                <rect id="t2-249" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="120" />
-                                <rect id="t2-250" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="135" />
-                                <rect id="t2-251" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="150" />
-                                <rect id="t2-252" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="165" />
-                                <rect id="t2-253" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="180" />
-                                <rect id="t2-254" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="195" />
-                                <rect id="t2-255" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="210" />
-                                <rect id="t2-256" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="225" />
-                
-                            </g>
-                            <g transform="translate(20, 270)">
-                                <rect id="t2-257" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="0" />
-                                <rect id="t2-258" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="15" />
-                                <rect id="t2-259" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="30" />
-                                <rect id="t2-260" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="45" />
-                                <rect id="t2-261" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="60" />
-                                <rect id="t2-262" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="75" />
-                                <rect id="t2-263" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="90" />
-                                <rect id="t2-264" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="105" />
-                                <rect id="t2-265" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="120" />
-                                <rect id="t2-266" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="135" />
-                                <rect id="t2-267" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="150" />
-                                <rect id="t2-268" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="165" />
-                                <rect id="t2-269" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="180" />
-                                <rect id="t2-270" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="195" />
-                                <rect id="t2-271" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="210" />
-                                <rect id="t2-272" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="225" />
-                            </g>
-                            <g transform="translate(20, 285)">
-                                <rect id="t2-273" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="0" />
-                                <rect id="t2-274" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="15" />
-                                <rect id="t2-275" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="30" />
-                                <rect id="t2-276" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="45" />
-                                <rect id="t2-277" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="60" />
-                                <rect id="t2-278" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="75" />
-                                <rect id="t2-279" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="90" />
-                                <rect id="t2-280" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="105" />
-                                <rect id="t2-281" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="120" />
-                                <rect id="t2-282" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="135" />
-                                <rect id="t2-283" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="150" />
-                                <rect id="t2-284" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="165" />
-                                <rect id="t2-285" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="180" />
-                                <rect id="t2-286" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="195" />
-                                <rect id="t2-287" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="210" />
-                                <rect id="t2-288" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="225" />
-                                
-                            </g>
-                            <g transform="translate(20, 300)">
-                                <rect id="t2-289" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="0" />
-                                <rect id="t2-290" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="15" />
-                                <rect id="t2-291" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="30" />
-                                <rect id="t2-292" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="45" />
-                                <rect id="t2-293" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="60" />
-                                <rect id="t2-294" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="75" />
-                                <rect id="t2-295" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="90" />
-                                <rect id="t2-296" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="105" />
-                                <rect id="t2-297" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="120" />
-                                <rect id="t2-298" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="135" />
-                                <rect id="t2-299" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="150" />
-                                <rect id="t2-300" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="165" />
-                                <rect id="t2-301" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="180" />
-                                <rect id="t2-302" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="195" />
-                                <rect id="t2-303" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="210" />
-                                <rect id="t2-304" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="225" />
-                                </g>
-                            <g transform="translate(20, 315)">
-                                <rect id="t2-305" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="0" />
-                                <rect id="t2-306" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="15" />
-                                <rect id="t2-307" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="30" />
-                                <rect id="t2-308" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="45" />
-                                <rect id="t2-309" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="60" />
-                                <rect id="t2-310" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="75" />
-                                <rect id="t2-311" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="90" />
-                                <rect id="t2-312" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="105" />
-                                <rect id="t2-313" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="120" />
-                                <rect id="t2-314" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="135" />
-                                <rect id="t2-315" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="150" />
-                                <rect id="t2-316" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="165" />
-                                <rect id="t2-317" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="180" />
-                                <rect id="t2-318" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="195" />
-                                <rect id="t2-319" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="210" />
-                                <rect id="t2-320" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="225" />
-                            </g>
-                            <g transform="translate(20, 330)">
-                                <rect id="t2-321" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="0" />
-                                <rect id="t2-322" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="15" />
-                                <rect id="t2-323" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="30" />
-                                <rect id="t2-324" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="45" />
-                                <rect id="t2-325" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="60" />
-                                <rect id="t2-326" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="75" />
-                                <rect id="t2-327" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="90" />
-                                <rect id="t2-328" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="105" />
-                                <rect id="t2-329" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="120" />
-                                <rect id="t2-330" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="135" />
-                                <rect id="t2-331" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="150" />
-                                <rect id="t2-332" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="165" />
-                                <rect id="t2-333" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="180" />
-                                <rect id="t2-334" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="195" />
-                                <rect id="t2-335" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="210" />
-                                <rect id="t2-336" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="225" />
-                
-                            </g>
-                            <g transform="translate(20, 345)">
-                                <rect id="t2-337" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="0" />
-                                <rect id="t2-338" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="15" />
-                                <rect id="t2-339" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="30" />
-                                <rect id="t2-340" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="45" />
-                                <rect id="t2-341" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="60" />
-                                <rect id="t2-342" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="75" />
-                                <rect id="t2-343" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="90" />
-                                <rect id="t2-344" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="105" />
-                                <rect id="t2-345" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="120" />
-                                <rect id="t2-346" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="135" />
-                                <rect id="t2-347" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="150" />
-                                <rect id="t2-348" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="165" />
-                                <rect id="t2-349" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="180" />
-                                <rect id="t2-350" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="195" />
-                                <rect id="t2-351" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="210" />
-                                <rect id="t2-352" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="225" />
-                            </g>
-                            <g transform="translate(20, 360)">
-                                <rect id="t2-353" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="0" />
-                                <rect id="t2-354" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="15" />
-                                <rect id="t2-355" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="30" />
-                                <rect id="t2-356" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="45" />
-                                <rect id="t2-357" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="60" />
-                                <rect id="t2-358" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="75" />
-                                <rect id="t2-359" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="90" />
-                                <rect id="t2-360" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="105" />
-                                <rect id="t2-361" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="120" />
-                                <rect id="t2-362" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="135" />
-                                <rect id="t2-363" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="150" />
-                                <rect id="t2-364" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="165" />
-                                <rect id="t2-365" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="180" />
-                                <rect id="t2-366" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="195" />
-                                <rect id="t2-367" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="210" />
-                                <rect id="t2-368" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="225" />
-                            </g>
-                            <g transform="translate(20, 375)">
-                                <rect id="t2-369" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="0" />
-                                <rect id="t2-370" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="15" />
-                                <rect id="t2-371" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="30" />
-                                <rect id="t2-372" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="45" />
-                                <rect id="t2-373" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="60" />
-                                <rect id="t2-374" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="75" />
-                                <rect id="t2-375" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="90" />
-                                <rect id="t2-376" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="105" />
-                                <rect id="t2-377" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="120" />
-                                <rect id="t2-378" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="135" />
-                                <rect id="t2-379" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="150" />
-                                <rect id="t2-380" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="165" />
-                                <rect id="t2-381" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="180" />
-                                <rect id="t2-382" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="195" />
-                                <rect id="t2-383" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="210" />
-                                <rect id="t2-384" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="225" />
-                        </g>
-                            <g transform="translate(20, 390)">
-                                <rect id="t2-385" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="0" />
-                                <rect id="t2-386" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="15" />
-                                <rect id="t2-387" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="30" />
-                                <rect id="t2-388" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="45" />
-                                <rect id="t2-389" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="60" />
-                                <rect id="t2-390" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="75" />
-                                <rect id="t2-391" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="90" />
-                                <rect id="t2-392" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="105" />
-                                <rect id="t2-393" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="120" />
-                                <rect id="t2-394" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="135" />
-                                <rect id="t2-395" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="150" />
-                                <rect id="t2-396" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="165" />
-                                <rect id="t2-397" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="180" />
-                                <rect id="t2-398" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="195" />
-                                <rect id="t2-399" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="210" />
-                                <rect id="t2-400" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="225" />
-                            </g>
-                        </g>
-                    </svg>                                   
+                <div id="movie-poster">
                     
                 </div>
-               </section>
+            
+            </div>  
+            <div class="col"style="margin: 4">
+            
+                <div id="movie-title"></div>
+                <p id="description">Short description of the movie goes here...</p>
+                <h4>Please select date:</h4>
+                <select id="date-selector">
+                    
+                    
+                </select>
+        
                 
+                <h4>Please timeslot:</h4>
+                <select id="timeslot-selector" style="margin: 6;">
+                    
+                </select>
+                
+                
+                <div id="btn-mod" style="display:block;" style="margin: 6">
+                </div>
+                <div id="booking-reciept"class="container-sm" style="margin: 6; border: darkolivegreen; display: none;">
+                    <div class="col">
+                        <div id="booking-message" style="display:block">
+                            <h3 id="booking-header"></h3>
+                            <div class="input-group mb-3">
+                                <span class="input-group-text" id="basic-addon1">Seatnumber</span>
+                            <input id="user-name" class="form-control" type="text" placeholder="Default input">
+                            </div>
+                            <div class="input-group mb-3">
+                                <span class="input-group-text" id="basic-addon1">Seatnumber</span>
+                            <input id="seat-number" class="form-control" type="text" placeholder="Default input">
+                            </div>
+                            
+                            <div class="input-group mb-3">
+                                <span class="input-group-text" id="basic-addon2">Date</span>
+                            <input id="showing-date" class="form-control" type="text" placeholder="Default input">
+                            </div>
+                            <div class="input-group mb-3">
+                                <span class="input-group-text" id="basic-addon3">Movie</span>
+                            <input id="movie-title" class="form-control" type="text" placeholder="Default input">
+                            </div>
+                            <div class="input-group mb-3">
+                                <span class="input-group-text" id="basic-addon3">timeslot</span>
+                            <input id="timeslot"class="form-control" type="text" placeholder="Default input">
+                            </div>
+                            <div class="input-group mb-3">
+                            <div class="btn-group" role="group" aria-label="reset and submit"style="margin: 5">
+                                <input class="btn btn-primary" type="submit" value="Submit">
+                                <input class="btn btn-secondary" type="reset" value="Reset">
+                            </div>
+                            </div>
+                        </div>
+                    </div>
+            </div>
+            </div>
+
+            <div class="col" style="margin: 4;">
+                <div id="seat-listener">
+                    
+                    
+                    <div id="theater-1" style="display: none;">
+                        <svg width="800" height="800" xmlns="http://www.w3.org/2000/svg">
+                            <!-- Create the rows and t1s -->
+                            <g id="small-theater">
+                                <!-- Rows -->
+                                <line x1="" y1="12.5" x2="220" y2="12.5" stroke="black" stroke-width="2" />
+                    
+                                <g transform="translate(20, 30)">
+                                    <rect id="t1-1" width="10" height="10" fill="gray" stroke="black" stroke-width="1" />
+                                    <rect id="t1-2" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="15" />
+                                    <rect id="t1-3" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="30" />
+                                    <rect id="t1-4" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="45" />
+                                    <rect id="t1-5" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="60" />
+                                    <rect id="t1-6" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="75" />
+                                    <rect id="t1-7" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="90" />
+                                    <rect id="t1-8" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="105" />
+                                    <rect id="t1-9" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="120" />
+                                    <rect id="t1-10" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="135" />
+                                    <rect id="t1-11" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="150" />
+                                    <rect id="t1-12" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="165" />
+                                </g>
+                    
+                                
+                                <g transform="translate(20, 45)">
+                                    <rect id="t1-13" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="0" />
+                                    <rect id="t1-14" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="15" />
+                                    <rect id="t1-15" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="30" />
+                                    <rect id="t1-16" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="45" />
+                                    <rect id="t1-17" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="60" />
+                                    <rect id="t1-18" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="75" />
+                                    <rect id="t1-19" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="90" />
+                                    <rect id="t1-20" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="105" />
+                                    <rect id="t1-21" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="120" />
+                                    <rect id="t1-22" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="135" />
+                                    <rect id="t1-23" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="150" />
+                                    <rect id="t1-24" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="165" />
+                                </g>
+                                <g transform="translate(20, 60)">
+                                    <rect id="t1-25" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="0" />
+                                    <rect id="t1-26" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="15" />
+                                    <rect id="t1-27" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="30" />
+                                    <rect id="t1-28" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="45" />
+                                    <rect id="t1-29" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="60" />
+                                    <rect id="t1-30" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="75" />
+                                    <rect id="t1-31" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="90" />
+                                    <rect id="t1-32" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="105" />
+                                    <rect id="t1-33" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="120" />
+                                    <rect id="t1-34" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="135" />
+                                    <rect id="t1-35" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="150" />
+                                    <rect id="t1-36" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="165" />
+                                </g>
+                                <g transform="translate(20, 75)">
+                                    <rect id="t1-37" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="0" />
+                                    <rect id="t1-38" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="15" />
+                                    <rect id="t1-39" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="30" />
+                                    <rect id="t1-40" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="45" />
+                                    <rect id="t1-41" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="60" />
+                                    <rect id="t1-42" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="75" />
+                                    <rect id="t1-43" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="90" />
+                                    <rect id="t1-44" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="105" />
+                                    <rect id="t1-45" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="120" />
+                                    <rect id="t1-46" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="135" />
+                                    <rect id="t1-47" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="150" />
+                                    <rect id="t1-48" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="165" />
+                                </g>
+                                <g transform="translate(20, 90)">
+                                    <rect id="t1-49" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="0" />
+                                    <rect id="t1-50" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="15" />
+                                    <rect id="t1-51" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="30" />
+                                    <rect id="t1-52" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="45" />
+                                    <rect id="t1-53" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="60" />
+                                    <rect id="t1-54" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="75" />
+                                    <rect id="t1-55" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="90" />
+                                    <rect id="t1-56" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="105" />
+                                    <rect id="t1-57" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="120" />
+                                    <rect id="t1-58" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="135" />
+                                    <rect id="t1-59" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="150" />
+                                    <rect id="t1-60" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="165" />
+                                </g>
+                                <g transform="translate(20, 105)">
+                                    <rect id="t1-61" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="0" />
+                                    <rect id="t1-62" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="15" />
+                                    <rect id="t1-63" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="30" />
+                                    <rect id="t1-64" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="45" />
+                                    <rect id="t1-65" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="60" />
+                                    <rect id="t1-66" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="75" />
+                                    <rect id="t1-67" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="90" />
+                                    <rect id="t1-68" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="105" />
+                                    <rect id="t1-69" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="120" />
+                                    <rect id="t1-70" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="135" />
+                                    <rect id="t1-71" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="150" />
+                                    <rect id="t1-72" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="165" />
+                                </g>
+                                <g transform="translate(20, 120)">
+                                    <rect id="t1-73" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="0" />
+                                    <rect id="t1-74" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="15" />
+                                    <rect id="t1-75" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="30" />
+                                    <rect id="t1-76" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="45" />
+                                    <rect id="t1-77" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="60" />
+                                    <rect id="t1-78" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="75" />
+                                    <rect id="t1-79" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="90" />
+                                    <rect id="t1-80" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="105" />
+                                    <rect id="t1-81" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="120" />
+                                    <rect id="t1-82" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="135" />
+                                    <rect id="t1-83" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="150" />
+                                    <rect id="t1-84" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="165" />
+                                </g>
+                                <g transform="translate(20, 135)">
+                                    <rect id="t1-85" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="0" />
+                                    <rect id="t1-86" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="15" />
+                                    <rect id="t1-87" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="30" />
+                                    <rect id="t1-88" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="45" />
+                                    <rect id="t1-89" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="60" />
+                                    <rect id="t1-90" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="75" />
+                                    <rect id="t1-91" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="90" />
+                                    <rect id="t1-92" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="105" />
+                                    <rect id="t1-93" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="120" />
+                                    <rect id="t1-94" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="135" />
+                                    <rect id="t1-95" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="150" />
+                                    <rect id="t1-96" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="165" />
+                                </g>
+                                <g transform="translate(20, 150)">
+                                    <rect id="t1-97" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="0" />
+                                    <rect id="t1-98" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="15" />
+                                    <rect id="t1-99" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="30" />
+                                    <rect id="t1-100" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="45" />
+                                    <rect id="t1-101" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="60" />
+                                    <rect id="t1-102" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="75" />
+                                    <rect id="t1-103" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="90" />
+                                    <rect id="t1-104" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="105" />
+                                    <rect id="t1-105" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="120" />
+                                    <rect id="t1-106" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="135" />
+                                    <rect id="t1-107" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="150" />
+                                    <rect id="t1-108" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="165" />
+                                </g>
+                                <g transform="translate(20, 165)">
+                                    <rect id="t1-109" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="0" />
+                                    <rect id="t1-110" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="15" />
+                                    <rect id="t1-111" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="30" />
+                                    <rect id="t1-112" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="45" />
+                                    <rect id="t1-113" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="60" />
+                                    <rect id="t1-114" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="75" />
+                                    <rect id="t1-115" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="90" />
+                                    <rect id="t1-116" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="105" />
+                                    <rect id="t1-117" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="120" />
+                                    <rect id="t1-118" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="135" />
+                                    <rect id="t1-119" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="150" />
+                                    <rect id="t1-120" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="165" />
+                                </g>
+                                <g transform="translate(20, 180)">
+                                    <rect id="t1-121" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="0" />
+                                    <rect id="t1-122" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="15" />
+                                    <rect id="t1-123" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="30" />
+                                    <rect id="t1-124" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="45" />
+                                    <rect id="t1-125" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="60" />
+                                    <rect id="t1-126" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="75" />
+                                    <rect id="t1-127" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="90" />
+                                    <rect id="t1-128" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="105" />
+                                    <rect id="t1-129" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="120" />
+                                    <rect id="t1-130" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="135" />
+                                    <rect id="t1-131" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="150" />
+                                    <rect id="t1-132" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="165" />
+                                </g>
+                                <g transform="translate(20, 195)">
+                                    <rect id="t1-133" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="0" />
+                                    <rect id="t1-134" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="15" />
+                                    <rect id="t1-135" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="30" />
+                                    <rect id="t1-136" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="45" />
+                                    <rect id="t1-137" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="60" />
+                                    <rect id="t1-138" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="75" />
+                                    <rect id="t1-139" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="90" />
+                                    <rect id="t1-140" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="105" />
+                                    <rect id="t1-141" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="120" />
+                                    <rect id="t1-142" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="135" />
+                                    <rect id="t1-143" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="150" />
+                                    <rect id="t1-144" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="165" />
+                                </g>
+                                <g transform="translate(20, 210)">
+                                    <rect id="t1-145" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="0" />
+                                    <rect id="t1-146" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="15" />
+                                    <rect id="t1-147" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="30" />
+                                    <rect id="t1-148" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="45" />
+                                    <rect id="t1-149" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="60" />
+                                    <rect id="t1-150" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="75" />
+                                    <rect id="t1-151" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="90" />
+                                    <rect id="t1-152" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="105" />
+                                    <rect id="t1-153" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="120" />
+                                    <rect id="t1-154" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="135" />
+                                    <rect id="t1-155" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="150" />
+                                    <rect id="t1-156" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="165" />
+                                </g>
+                                <g transform="translate(20, 225)">
+                                    <rect id="t1-157" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="0" />
+                                    <rect id="t1-158" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="15" />
+                                    <rect id="t1-159" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="30" />
+                                    <rect id="t1-160" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="45" />
+                                    <rect id="t1-161" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="60" />
+                                    <rect id="t1-162" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="75" />
+                                    <rect id="t1-163" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="90" />
+                                    <rect id="t1-164" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="105" />
+                                    <rect id="t1-165" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="120" />
+                                    <rect id="t1-166" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="135" />
+                                    <rect id="t1-167" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="150" />
+                                    <rect id="t1-168" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="165" />
+                                </g>
+                                <g transform="translate(20, 240)">
+                                    <rect id="t1-169" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="0" />
+                                    <rect id="t1-170" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="15" />
+                                    <rect id="t1-171" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="30" />
+                                    <rect id="t1-172" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="45" />
+                                    <rect id="t1-173" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="60" />
+                                    <rect id="t1-174" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="75" />
+                                    <rect id="t1-175" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="90" />
+                                    <rect id="t1-176" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="105" />
+                                    <rect id="t1-177" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="120" />
+                                    <rect id="t1-178" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="135" />
+                                    <rect id="t1-179" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="150" />
+                                    <rect id="t1-180" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="165" />
+                                </g>
+                                <g transform="translate(20, 255)">
+                                    <rect id="t1-181" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="0" />
+                                    <rect id="t1-182" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="15" />
+                                    <rect id="t1-183" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="30" />
+                                    <rect id="t1-184" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="45" />
+                                    <rect id="t1-185" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="60" />
+                                    <rect id="t1-186" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="75" />
+                                    <rect id="t1-187" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="90" />
+                                    <rect id="t1-188" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="105" />
+                                    <rect id="t1-189" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="120" />
+                                    <rect id="t1-190" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="135" />
+                                    <rect id="t1-191" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="150" />
+                                    <rect id="t1-192" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="165" />
+                                </g>
+                                <g transform="translate(20, 270)">
+                                    <rect id="t1-193" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="0" />
+                                    <rect id="t1-194" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="15" />
+                                    <rect id="t1-195" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="30" />
+                                    <rect id="t1-196" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="45" />
+                                    <rect id="t1-197" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="60" />
+                                    <rect id="t1-198" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="75" />
+                                    <rect id="t1-199" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="90" />
+                                    <rect id="t1-200" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="105" />
+                                    <rect id="t1-201" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="120" />
+                                    <rect id="t1-202" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="135" />
+                                    <rect id="t1-203" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="150" />
+                                    <rect id="t1-204" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="165" />
+                                </g>
+                                <g transform="translate(20, 285)">
+                                    <rect id="t1-205" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="0" />
+                                    <rect id="t1-206" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="15" />
+                                    <rect id="t1-207" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="30" />
+                                    <rect id="t1-208" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="45" />
+                                    <rect id="t1-209" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="60" />
+                                    <rect id="t1-210" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="75" />
+                                    <rect id="t1-211" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="90" />
+                                    <rect id="t1-212" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="105" />
+                                    <rect id="t1-213" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="120" />
+                                    <rect id="t1-214" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="135" />
+                                    <rect id="t1-215" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="150" />
+                                    <rect id="t1-216" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="165" />
+                                </g>
+                                <g transform="translate(20, 300)">
+                                    <rect id="t1-217" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="0" />
+                                    <rect id="t1-218" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="15" />
+                                    <rect id="t1-219" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="30" />
+                                    <rect id="t1-220" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="45" />
+                                    <rect id="t1-221" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="60" />
+                                    <rect id="t1-222" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="75" />
+                                    <rect id="t1-223" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="90" />
+                                    <rect id="t1-224" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="105" />
+                                    <rect id="t1-225" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="120" />
+                                    <rect id="t1-226" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="135" />
+                                    <rect id="t1-227" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="150" />
+                                    <rect id="t1-228" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="165" />
+                                </g>
+                                <g transform="translate(20, 315)">
+                                    <rect id="t1-229" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="0" />
+                                    <rect id="t1-230" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="15" />
+                                    <rect id="t1-231" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="30" />
+                                    <rect id="t1-232" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="45" />
+                                    <rect id="t1-233" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="60" />
+                                    <rect id="t1-234" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="75" />
+                                    <rect id="t1-235" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="90" />
+                                    <rect id="t1-236" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="105" />
+                                    <rect id="t1-237" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="120" />
+                                    <rect id="t1-238" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="135" />
+                                    <rect id="t1-239" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="150" />
+                                    <rect id="t1-240" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="165" />
+                                </g>
+                            </g>
+                        </svg>                
+
+                    </div>
+                    
+                    <div id="theater-2" style="display: none;width:50%; height: au;">                    
+                        <svg width="800" height="800" xmlns="http://www.w3.org/2000/svg">
+                        
+                            <g id="big-theater">
+                            
+                                <line x1="" y1="12.5" x2="275" y2="12.5" stroke="black" stroke-width="2" />
+                    
+                                <g transform="translate(20, 30)">
+                                    <rect id="t2-1" width="10" height="10" fill="gray" stroke="black" stroke-width="1" />
+                                    <rect id="t2-2" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="15" />
+                                    <rect id="t2-3" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="30" />
+                                    <rect id="t2-4" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="45" />
+                                    <rect id="t2-5" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="60" />
+                                    <rect id="t2-6" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="75" />
+                                    <rect id="t2-7" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="90" />
+                                    <rect id="t2-8" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="105" />
+                                    <rect id="t2-9" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="120" />
+                                    <rect id="t2-10" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="135" />
+                                    <rect id="t2-11" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="150" />
+                                    <rect id="t2-12" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="165" />
+                                    <rect id="t2-13" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="180" />
+                                    <rect id="t2-14" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="195" />
+                                    <rect id="t2-15" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="210" />
+                                    <rect id="t2-16" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="225" />
+                                    
+                                </g>
+                    
+                                
+                                <g transform="translate(20, 45)">
+                                    <rect id="t2-17" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="0" />
+                                    <rect id="t2-18" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="15" />
+                                    <rect id="t2-19" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="30" />
+                                    <rect id="t2-20" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="45" />
+                                    <rect id="t2-21" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="60" />
+                                    <rect id="t2-22" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="75" />
+                                    <rect id="t2-23" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="90" />
+                                    <rect id="t2-24" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="105" />
+                                    <rect id="t2-25" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="120" />
+                                    <rect id="t2-26" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="135" />
+                                    <rect id="t2-27" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="150" />
+                                    <rect id="t2-28" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="165" />
+                                    <rect id="t2-29" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="180" />
+                                    <rect id="t2-30" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="195" />
+                                    <rect id="t2-31" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="210" />
+                                    <rect id="t2-32" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="225" />
+                                </g>
+                                <g transform="translate(20, 60)">
+                                    <rect id="t2-33" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="0" />
+                                    <rect id="t2-34" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="15" />
+                                    <rect id="t2-35" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="30" />
+                                    <rect id="t2-36" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="45" />
+                                    <rect id="t2-37" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="60" />
+                                    <rect id="t2-38" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="75" />
+                                    <rect id="t2-39" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="90" />
+                                    <rect id="t2-40" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="105" />
+                                    <rect id="t2-41" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="120" />
+                                    <rect id="t2-42" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="135" />
+                                    <rect id="t2-43" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="150" />
+                                    <rect id="t2-44" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="165" />
+                                    <rect id="t2-45" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="180" />
+                                    <rect id="t2-46" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="195" />
+                                    <rect id="t2-47" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="210" />
+                                    <rect id="t2-48" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="225" />
+                                </g>
+                                <g transform="translate(20, 75)">
+                                    <rect id="t2-49" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="0" />
+                                    <rect id="t2-50" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="15" />
+                                    <rect id="t2-51" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="30" />
+                                    <rect id="t2-52" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="45" />
+                                    <rect id="t2-53" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="60" />
+                                    <rect id="t2-54" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="75" />
+                                    <rect id="t2-55" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="90" />
+                                    <rect id="t2-56" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="105" />
+                                    <rect id="t2-57" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="120" />
+                                    <rect id="t2-58" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="135" />
+                                    <rect id="t2-59" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="150" />
+                                    <rect id="t2-60" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="165" />
+                                    <rect id="t2-61" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="180" />
+                                    <rect id="t2-62" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="195" />
+                                    <rect id="t2-63" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="210" />
+                                    <rect id="t2-64" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="225" />            </g>
+                                <g transform="translate(20, 90)">
+                                    <rect id="t2-65" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="0" />
+                                    <rect id="t2-66" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="15" />
+                                    <rect id="t2-67" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="30" />
+                                    <rect id="t2-68" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="45" />
+                                    <rect id="t2-69" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="60" />
+                                    <rect id="t2-70" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="75" />
+                                    <rect id="t2-71" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="90" />
+                                    <rect id="t2-72" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="105" />
+                                    <rect id="t2-73" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="120" />
+                                    <rect id="t2-74" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="135" />
+                                    <rect id="t2-75" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="150" />
+                                    <rect id="t2-76" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="165" />
+                                    <rect id="t2-77" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="180" />
+                                    <rect id="t2-78" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="195" />
+                                    <rect id="t2-79" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="210" />
+                                    <rect id="t2-80" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="225" />
+                                    
+                    
+                                </g>
+                                <g transform="translate(20, 105)">
+                                    <rect id="t2-81" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="0" />
+                                    <rect id="t2-82" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="15" />
+                                    <rect id="t2-83" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="30" />
+                                    <rect id="t2-84" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="45" />
+                                    <rect id="t2-85" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="60" />
+                                    <rect id="t2-86" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="75" />
+                                    <rect id="t2-87" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="90" />
+                                    <rect id="t2-88" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="105" />
+                                    <rect id="t2-89" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="120" />
+                                    <rect id="t2-90" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="135" />
+                                    <rect id="t2-91" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="150" />
+                                    <rect id="t2-92" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="165" />
+                                    <rect id="t2-93" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="180" />
+                                    <rect id="t2-94" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="195" />
+                                    <rect id="t2-95" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="210" />
+                                    <rect id="t2-96" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="225" />
+                    
+                    
+                                </g>
+                                <g transform="translate(20, 120)">
+                                    <rect id="t2-97" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="0" />
+                                    <rect id="t2-98" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="15" />
+                                    <rect id="t2-99" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="30" />
+                                    <rect id="t2-100" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="45" />
+                                    <rect id="t2-101" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="60" />
+                                    <rect id="t2-102" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="75" />
+                                    <rect id="t2-103" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="90" />
+                                    <rect id="t2-104" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="105" />
+                                    <rect id="t2-105" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="120" />
+                                    <rect id="t2-106" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="135" />
+                                    <rect id="t2-107" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="150" />
+                                    <rect id="t2-108" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="165" />
+                                    <rect id="t2-109" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="180" />
+                                    <rect id="t2-110" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="195" />
+                                    <rect id="t2-111" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="210" />
+                                    <rect id="t2-112" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="225" />
+                                </g>
+                                <g transform="translate(20, 135)">
+                                    <rect id="t2-113" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="0" />
+                                    <rect id="t2-114" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="15" />
+                                    <rect id="t2-115" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="30" />
+                                    <rect id="t2-116" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="45" />
+                                    <rect id="t2-117" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="60" />
+                                    <rect id="t2-118" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="75" />
+                                    <rect id="t2-119" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="90" />
+                                    <rect id="t2-120" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="105" />
+                                    <rect id="t2-121" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="120" />
+                                    <rect id="t2-122" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="135" />
+                                    <rect id="t2-123" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="150" />
+                                    <rect id="t2-124" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="165" />
+                                    <rect id="t2-125" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="180" />
+                                    <rect id="t2-126" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="195" />
+                                    <rect id="t2-127" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="210" />
+                                    <rect id="t2-128" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="225" />
+                                </g>
+                                <g transform="translate(20, 150)">
+                                    <rect id="t2-129" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="0" />
+                                    <rect id="t2-130" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="15" />
+                                    <rect id="t2-131" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="30" />
+                                    <rect id="t2-132" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="45" />
+                                    <rect id="t2-133" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="60" />
+                                    <rect id="t2-134" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="75" />
+                                    <rect id="t2-135" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="90" />
+                                    <rect id="t2-136" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="105" />
+                                    <rect id="t2-137" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="120" />
+                                    <rect id="t2-138" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="135" />
+                                    <rect id="t2-139" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="150" />
+                                    <rect id="t2-140" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="165" />
+                                    <rect id="t2-141" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="180" />
+                                    <rect id="t2-142" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="195" />
+                                    <rect id="t2-143" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="210" />
+                                    <rect id="t2-144" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="225" />
+                                </g>
+                                <g transform="translate(20, 165)">
+                                    <rect id="t2-145" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="0" />
+                                    <rect id="t2-146" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="15" />
+                                    <rect id="t2-147" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="30" />
+                                    <rect id="t2-148" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="45" />
+                                    <rect id="t2-149" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="60" />
+                                    <rect id="t2-150" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="75" />
+                                    <rect id="t2-151" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="90" />
+                                    <rect id="t2-152" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="105" />
+                                    <rect id="t2-153" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="120" />
+                                    <rect id="t2-154" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="135" />
+                                    <rect id="t2-155" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="150" />
+                                    <rect id="t2-156" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="165" />
+                                    <rect id="t2-157" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="180" />
+                                    <rect id="t2-158" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="195" />
+                                    <rect id="t2-159" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="210" />
+                                    <rect id="t2-160" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="225" />
+                                    </g>
+                                <g transform="translate(20, 180)">
+                                    <rect id="t2-161" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="0" />
+                                    <rect id="t2-162" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="15" />
+                                    <rect id="t2-163" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="30" />
+                                    <rect id="t2-164" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="45" />
+                                    <rect id="t2-165" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="60" />
+                                    <rect id="t2-166" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="75" />
+                                    <rect id="t2-167" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="90" />
+                                    <rect id="t2-168" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="105" />
+                                    <rect id="t2-169" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="120" />
+                                    <rect id="t2-170" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="135" />
+                                    <rect id="t2-171" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="150" />
+                                    <rect id="t2-172" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="165" />
+                                    <rect id="t2-173" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="180" />
+                                    <rect id="t2-174" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="195" />
+                                    <rect id="t2-175" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="210" />
+                                    <rect id="t2-176" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="225" />
+                                    </g>
+                                <g transform="translate(20, 195)">
+                                    <rect id="t2-177" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="0" />
+                                    <rect id="t2-178" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="15" />
+                                    <rect id="t2-179" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="30" />
+                                    <rect id="t2-180" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="45" />
+                                    <rect id="t2-181" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="60" />
+                                    <rect id="t2-182" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="75" />
+                                    <rect id="t2-183" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="90" />
+                                    <rect id="t2-184" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="105" />
+                                    <rect id="t2-185" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="120" />
+                                    <rect id="t2-186" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="135" />
+                                    <rect id="t2-187" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="150" />
+                                    <rect id="t2-188" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="165" />
+                                    <rect id="t2-189" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="180" />
+                                    <rect id="t2-190" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="195" />
+                                    <rect id="t2-191" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="210" />
+                                    <rect id="t2-192" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="225" />
+                                    </g>
+                                <g transform="translate(20, 210)">
+                                    <rect id="t2-193" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="0" />
+                                    <rect id="t2-194" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="15" />
+                                    <rect id="t2-195" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="30" />
+                                    <rect id="t2-196" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="45" />
+                                    <rect id="t2-197" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="60" />
+                                    <rect id="t2-198" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="75" />
+                                    <rect id="t2-199" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="90" />
+                                    <rect id="t2-200" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="105" />
+                                    <rect id="t2-201" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="120" />
+                                    <rect id="t2-202" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="135" />
+                                    <rect id="t2-203" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="150" />
+                                    <rect id="t2-204" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="165" />
+                                    <rect id="t2-205" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="180" />
+                                    <rect id="t2-206" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="195" />
+                                    <rect id="t2-207" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="210" />
+                                    <rect id="t2-208" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="225" />
+                                    
+                                    </g>
+                                <g transform="translate(20, 225)">
+                                    
+                                    <rect id="t2-209" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="0" />
+                                    <rect id="t2-210" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="15" />
+                                    <rect id="t2-211" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="30" />
+                                    <rect id="t2-212" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="45" />
+                                    <rect id="t2-213" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="60" />
+                                    <rect id="t2-214" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="75" />
+                                    <rect id="t2-215" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="90" />
+                                    <rect id="t2-216" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="105" />
+                                    <rect id="t2-217" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="120" />
+                                    <rect id="t2-218" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="135" />
+                                    <rect id="t2-219" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="150" />
+                                    <rect id="t2-220" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="165" />
+                                    <rect id="t2-221" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="180" />
+                                    <rect id="t2-222" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="195" />
+                                    <rect id="t2-223" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="210" />
+                                    <rect id="t2-224" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="225" />
+                                    
+                                </g>
+                                <g transform="translate(20, 240)">
+                                    <rect id="t2-225" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="0" />
+                                    <rect id="t2-226" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="15" />
+                                    <rect id="t2-227" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="30" />
+                                    <rect id="t2-228" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="45" />
+                                    <rect id="t2-229" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="60" />
+                                    <rect id="t2-230" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="75" />
+                                    <rect id="t2-231" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="90" />
+                                    <rect id="t2-232" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="105" />
+                                    <rect id="t2-233" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="120" />
+                                    <rect id="t2-234" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="135" />
+                                    <rect id="t2-235" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="150" />
+                                    <rect id="t2-236" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="165" />
+                                    <rect id="t2-237" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="180" />
+                                    <rect id="t2-238" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="195" />
+                                    <rect id="t2-239" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="210" />
+                                    <rect id="t2-240" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="225" />                
+                                </g>
+                                <g transform="translate(20, 255)">
+                                    <rect id="t2-241" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="0" />
+                                    <rect id="t2-242" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="15" />
+                                    <rect id="t2-243" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="30" />
+                                    <rect id="t2-244" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="45" />
+                                    <rect id="t2-245" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="60" />
+                                    <rect id="t2-246" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="75" />
+                                    <rect id="t2-247" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="90" />
+                                    <rect id="t2-248" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="105" />
+                                    <rect id="t2-249" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="120" />
+                                    <rect id="t2-250" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="135" />
+                                    <rect id="t2-251" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="150" />
+                                    <rect id="t2-252" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="165" />
+                                    <rect id="t2-253" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="180" />
+                                    <rect id="t2-254" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="195" />
+                                    <rect id="t2-255" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="210" />
+                                    <rect id="t2-256" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="225" />
+                    
+                                </g>
+                                <g transform="translate(20, 270)">
+                                    <rect id="t2-257" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="0" />
+                                    <rect id="t2-258" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="15" />
+                                    <rect id="t2-259" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="30" />
+                                    <rect id="t2-260" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="45" />
+                                    <rect id="t2-261" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="60" />
+                                    <rect id="t2-262" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="75" />
+                                    <rect id="t2-263" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="90" />
+                                    <rect id="t2-264" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="105" />
+                                    <rect id="t2-265" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="120" />
+                                    <rect id="t2-266" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="135" />
+                                    <rect id="t2-267" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="150" />
+                                    <rect id="t2-268" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="165" />
+                                    <rect id="t2-269" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="180" />
+                                    <rect id="t2-270" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="195" />
+                                    <rect id="t2-271" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="210" />
+                                    <rect id="t2-272" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="225" />
+                                </g>
+                                <g transform="translate(20, 285)">
+                                    <rect id="t2-273" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="0" />
+                                    <rect id="t2-274" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="15" />
+                                    <rect id="t2-275" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="30" />
+                                    <rect id="t2-276" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="45" />
+                                    <rect id="t2-277" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="60" />
+                                    <rect id="t2-278" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="75" />
+                                    <rect id="t2-279" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="90" />
+                                    <rect id="t2-280" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="105" />
+                                    <rect id="t2-281" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="120" />
+                                    <rect id="t2-282" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="135" />
+                                    <rect id="t2-283" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="150" />
+                                    <rect id="t2-284" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="165" />
+                                    <rect id="t2-285" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="180" />
+                                    <rect id="t2-286" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="195" />
+                                    <rect id="t2-287" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="210" />
+                                    <rect id="t2-288" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="225" />
+                                    
+                                </g>
+                                <g transform="translate(20, 300)">
+                                    <rect id="t2-289" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="0" />
+                                    <rect id="t2-290" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="15" />
+                                    <rect id="t2-291" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="30" />
+                                    <rect id="t2-292" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="45" />
+                                    <rect id="t2-293" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="60" />
+                                    <rect id="t2-294" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="75" />
+                                    <rect id="t2-295" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="90" />
+                                    <rect id="t2-296" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="105" />
+                                    <rect id="t2-297" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="120" />
+                                    <rect id="t2-298" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="135" />
+                                    <rect id="t2-299" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="150" />
+                                    <rect id="t2-300" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="165" />
+                                    <rect id="t2-301" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="180" />
+                                    <rect id="t2-302" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="195" />
+                                    <rect id="t2-303" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="210" />
+                                    <rect id="t2-304" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="225" />
+                                    </g>
+                                <g transform="translate(20, 315)">
+                                    <rect id="t2-305" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="0" />
+                                    <rect id="t2-306" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="15" />
+                                    <rect id="t2-307" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="30" />
+                                    <rect id="t2-308" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="45" />
+                                    <rect id="t2-309" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="60" />
+                                    <rect id="t2-310" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="75" />
+                                    <rect id="t2-311" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="90" />
+                                    <rect id="t2-312" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="105" />
+                                    <rect id="t2-313" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="120" />
+                                    <rect id="t2-314" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="135" />
+                                    <rect id="t2-315" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="150" />
+                                    <rect id="t2-316" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="165" />
+                                    <rect id="t2-317" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="180" />
+                                    <rect id="t2-318" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="195" />
+                                    <rect id="t2-319" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="210" />
+                                    <rect id="t2-320" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="225" />
+                                </g>
+                                <g transform="translate(20, 330)">
+                                    <rect id="t2-321" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="0" />
+                                    <rect id="t2-322" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="15" />
+                                    <rect id="t2-323" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="30" />
+                                    <rect id="t2-324" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="45" />
+                                    <rect id="t2-325" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="60" />
+                                    <rect id="t2-326" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="75" />
+                                    <rect id="t2-327" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="90" />
+                                    <rect id="t2-328" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="105" />
+                                    <rect id="t2-329" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="120" />
+                                    <rect id="t2-330" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="135" />
+                                    <rect id="t2-331" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="150" />
+                                    <rect id="t2-332" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="165" />
+                                    <rect id="t2-333" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="180" />
+                                    <rect id="t2-334" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="195" />
+                                    <rect id="t2-335" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="210" />
+                                    <rect id="t2-336" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="225" />
+                    
+                                </g>
+                                <g transform="translate(20, 345)">
+                                    <rect id="t2-337" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="0" />
+                                    <rect id="t2-338" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="15" />
+                                    <rect id="t2-339" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="30" />
+                                    <rect id="t2-340" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="45" />
+                                    <rect id="t2-341" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="60" />
+                                    <rect id="t2-342" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="75" />
+                                    <rect id="t2-343" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="90" />
+                                    <rect id="t2-344" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="105" />
+                                    <rect id="t2-345" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="120" />
+                                    <rect id="t2-346" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="135" />
+                                    <rect id="t2-347" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="150" />
+                                    <rect id="t2-348" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="165" />
+                                    <rect id="t2-349" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="180" />
+                                    <rect id="t2-350" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="195" />
+                                    <rect id="t2-351" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="210" />
+                                    <rect id="t2-352" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="225" />
+                                </g>
+                                <g transform="translate(20, 360)">
+                                    <rect id="t2-353" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="0" />
+                                    <rect id="t2-354" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="15" />
+                                    <rect id="t2-355" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="30" />
+                                    <rect id="t2-356" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="45" />
+                                    <rect id="t2-357" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="60" />
+                                    <rect id="t2-358" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="75" />
+                                    <rect id="t2-359" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="90" />
+                                    <rect id="t2-360" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="105" />
+                                    <rect id="t2-361" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="120" />
+                                    <rect id="t2-362" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="135" />
+                                    <rect id="t2-363" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="150" />
+                                    <rect id="t2-364" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="165" />
+                                    <rect id="t2-365" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="180" />
+                                    <rect id="t2-366" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="195" />
+                                    <rect id="t2-367" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="210" />
+                                    <rect id="t2-368" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="225" />
+                                </g>
+                                <g transform="translate(20, 375)">
+                                    <rect id="t2-369" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="0" />
+                                    <rect id="t2-370" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="15" />
+                                    <rect id="t2-371" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="30" />
+                                    <rect id="t2-372" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="45" />
+                                    <rect id="t2-373" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="60" />
+                                    <rect id="t2-374" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="75" />
+                                    <rect id="t2-375" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="90" />
+                                    <rect id="t2-376" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="105" />
+                                    <rect id="t2-377" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="120" />
+                                    <rect id="t2-378" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="135" />
+                                    <rect id="t2-379" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="150" />
+                                    <rect id="t2-380" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="165" />
+                                    <rect id="t2-381" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="180" />
+                                    <rect id="t2-382" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="195" />
+                                    <rect id="t2-383" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="210" />
+                                    <rect id="t2-384" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="225" />
+                            </g>
+                                <g transform="translate(20, 390)">
+                                    <rect id="t2-385" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="0" />
+                                    <rect id="t2-386" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="15" />
+                                    <rect id="t2-387" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="30" />
+                                    <rect id="t2-388" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="45" />
+                                    <rect id="t2-389" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="60" />
+                                    <rect id="t2-390" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="75" />
+                                    <rect id="t2-391" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="90" />
+                                    <rect id="t2-392" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="105" />
+                                    <rect id="t2-393" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="120" />
+                                    <rect id="t2-394" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="135" />
+                                    <rect id="t2-395" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="150" />
+                                    <rect id="t2-396" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="165" />
+                                    <rect id="t2-397" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="180" />
+                                    <rect id="t2-398" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="195" />
+                                    <rect id="t2-399" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="210" />
+                                    <rect id="t2-400" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="225" />
+                                </g>
+                            </g>
+                        </svg>                                   
+                        
+                    </div>
+                
+                    
+                </div>
             </div>
         </div>
-    </div>    
+        
+    </div>
+</div>    
 
-   
-    <!--Place modal two below this line -->
-    
-     
-            
-</div>

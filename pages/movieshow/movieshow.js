@@ -71,10 +71,10 @@ export async function initMovieShow(match) {
       console.log("Selected Movie Show ID:", movieShowId);
       // Here I want to use movieShow.id to get the Theater - call function
         const theater=parseInt(selectedShow.theater.id);
-        const btnString=`<button id="book-seat" class="btn btn-primary" data-toggle="modal" data-target="#booking-reciept" >Book Seat
+        const btnString=`<button id="book-seat" type="button" class="btn btn-primary" style="margin:4">Show Booking
         </button>`;
       
-        //document.querySelector("btn-mod").innerHTML= btnString;
+        
         if(theater===1){
             document.querySelector("#theater-2").style.display="none"
            document.querySelector("#theater-1").style.display="block"
@@ -94,7 +94,7 @@ export async function initMovieShow(match) {
         document.querySelector("#btn-mod").innerHTML= btnString;
         document.getElementById("seat-listener").addEventListener("click",seathandler); 
         document.getElementById("seat-listener").addEventListener("mouseover",colorReservedSeats); 
-        document.querySelector("#btn-mod").addEventListener("click",setupModal);
+        document.querySelector("#book-seat").addEventListener("click",setupModal);
        // document.querySelector("#book-seat").
       
     } 
@@ -103,16 +103,15 @@ export async function initMovieShow(match) {
   //functions 
   async function setupModal(){
     console.log("setupModal")
-    try{
-    reciept=`you have selected:${seatnumber} on the  ${selectedDate} to the movie: ${selectedShow.movie.title}
-     - Do you want to complete this booking?`
-    console.log(reciept)
-    document.querySelector("#booking-message").innerHTML="reciept";
+    document.querySelector("#booking-reciept").style.display="block";
+    document.querySelector("#timeslot").value=`${selectedShow.timeslot}`;
+    document.querySelector("#movie-title").value=`${selectedShow.movie.title}`;
+    document.querySelector("#showing-date").value=`${selectedDate}`
+    document.querySelector("#seat-number").value=`${seatnumber}`;  
+   
 
     document.querySelector("#complete-booking").addEventListener("click",makeReservation)
-  }catch(err){
-    console.log(err)
-  }
+  
   }
 
     async function getReservedSeats(){
