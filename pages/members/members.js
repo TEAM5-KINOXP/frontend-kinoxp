@@ -4,7 +4,7 @@ const URL = API_URL + "/users"
 
 export async function initMembers(){
 
-    const members = await fetch(URL).then(handleHttpErrors)
+    const members = await fetch(URL, makeOptions("GET",null,true)).then(handleHttpErrors)
     const memberRows = members.map(member => `
         <tr>
             <td>${member.username}</td>
@@ -34,7 +34,7 @@ async function setUpDeleteModel(evt){
 async function deleteUser(username){
     try{
     const DELETE_URL = API_URL + `/users/${username}`
-    await fetch(DELETE_URL, makeOptions("DELETE")).then(handleHttpErrors)
+    await fetch(DELETE_URL, makeOptions("DELETE", null,true)).then(handleHttpErrors)
     }catch(error){
         console.log(error)
     }

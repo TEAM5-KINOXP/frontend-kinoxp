@@ -4,7 +4,7 @@ const url = API_URL + "/movies";
 
 
 export async function initMovie() {
-  const options = makeOptions("GET");
+  const options = makeOptions("GET",null, true);
 
   const movies = await fetch(url, options).then(r =>handleHttpErrors(r));
 
@@ -30,7 +30,7 @@ async function addMovie(){
     const imdbId = document.querySelector("#movie-imdb-id").value;
 
     const addURL = url + "/" + imdbId;
-    const options = makeOptions("POST");
+    const options = makeOptions("POST",null,true);
     const movie = await fetch(addURL, options).then(r => handleHttpErrors(r));
     window.location.reload();
 }
@@ -52,7 +52,7 @@ async function setUpDeleteModal(e) {
 async function deleteMovie(id){
     try{
     const DELETE_URL = `${url}/${id}`
-    const delete_res = await fetch(DELETE_URL, makeOptions("DELETE")).then(r => handleHttpErrors(r))
+    const delete_res = await fetch(DELETE_URL, makeOptions("DELETE",null,true)).then(r => handleHttpErrors(r))
     }catch(error){
         console.log(error)
     }
