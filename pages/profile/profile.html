@@ -1,3 +1,76 @@
 <div class="template">
-    <h1>Profile</h1>
+    <div class="container" style="display: flex; height: 100%;">
+        <div class="left-side" style="flex: 1; margin-left: 5px;">
+            <form class="row g-3">
+                <div class="col-md-6">
+                  <label for="email" class="form-label">Email</label>
+                  <input type="email" class="form-control" id="email" readonly>
+                </div>
+                <div class="col-md-6">
+                  <label for="password" class="form-label">Password</label>
+                  <input type="password" class="form-control" id="password" placeholder="**********" readonly>
+                </div>
+                <div class="col-md-6">
+                  <label for="first-name" class="form-label">First name</label>
+                  <input type="text" class="form-control" id="first-name" readonly>
+                </div>
+                <div class="col-md-6">
+                  <label for="last-name" class="form-label">Last name</label>
+                  <input type="text" class="form-control" id="last-name" readonly>
+                </div>
+                <div class="col-12">
+                  <button type="submit" id="modal-start" class="btn btn-sm btn-primary edit-button" data-bs-toggle="modal" 
+                  data-bs-target="#edit-modal">Change profile information</button>
+                </div>
+              </form>
+        </div>
+        <div class="right-side" style="flex: 1; margin-left: 5px;">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Movie Title</th>
+                        <th>Reservation date</th>
+                        <th>Seat number</th>
+                        <th>Timeslot</th>
+                    </tr>
+                </thead>
+                <tbody id="reservation-rows"></tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="modal fade" id="edit-modal" tabindex="-1" aria-labelledby="edit-modal-label" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="edit-modal-label">Edit Profile</h1>
+      </div>
+      <div class="modal-body">
+        <p id="title"></p>
+        <form id="edit-form">
+            <div class="mb-3">
+                <label for="password-input" class="form-label">Password</label>
+                <input type="password" class="form-control" id="password-input" name="password" placeholder="Write new password">
+              </div>
+          <div class="mb-3">
+            <label for="email-input" class="form-label">Email</label>
+            <input type="email" class="form-control" id="email-input" name="email">
+          </div>
+          <div class="mb-3">
+            <label for="first-name-input" class="form-label">First Name</label>
+            <input type="text" class="form-control" id="first-name-input" name="first-name">
+          </div>
+          <div class="mb-3">
+            <label for="last-name-input" class="form-label">Last Name</label>
+            <input type="text" class="form-control" id="last-name-input" name="last-name">
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button id="edit-button" type="button" class="btn btn-primary">Save Changes</button>
+      </div>
+    </div>
+  </div>
+</div>
 </div>

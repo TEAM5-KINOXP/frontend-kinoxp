@@ -13,6 +13,7 @@ import {
   import{initMovieShow} from "./pages/movieshow/movieshow.js"
   import { initReservations } from "./pages/reservations/reservations.js"
   import { initSchedule } from "./pages/admin/schedule/schedule.js"
+  import { initProfile } from "./pages/profile/profile.js"
 
     window.addEventListener("load", async () => {
 
@@ -57,7 +58,7 @@ import {
       },
       "/profile": () => {
         renderHtml(templateProfile, "content")
-        //initProfile()
+        initProfile()
       },
       "/reservations": () => {
         renderHtml(templateReservations, "content")
