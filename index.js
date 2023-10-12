@@ -10,10 +10,11 @@ import {
   import { initSignup } from "./pages/signup/signup.js"
   import { initMovie } from "./pages/movie/movie.js"
   import { initMembers } from "./pages/members/members.js"  
-  import{initMovieShow} from "./pages/movieshow/movieshow.js"
+  import {initMovieShow} from "./pages/movieshow/movieshow.js"
   import { initReservations } from "./pages/reservations/reservations.js"
   import { initSchedule } from "./pages/admin/schedule/schedule.js"
   import { initProfile } from "./pages/profile/profile.js"
+  import { initLogin } from "./pages/login/login.js"
 
     window.addEventListener("load", async () => {
 
@@ -74,7 +75,7 @@ import {
       },
       "/login": (match) => {
         renderHtml(templateLogin, "content")
-        //initLogin()
+        initLogin()
       }, 
       "/logout": () => {
         renderHtml(templateLogin, "content")
