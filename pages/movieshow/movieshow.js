@@ -1,8 +1,8 @@
-import { handleHttpErrors, makeOptions} from "../../utility.js";
+import { handleHttpErrors, makeOptions,} from "../../utility.js";
 import { API_URL } from "../../settings.js";
 const url = API_URL + "/shows/movie/";
-const url_reservation=API_URL+"/reservations"
-
+const url_reservation=API_URL+"/reservations/reservations-for-authenticated"
+const user=localStorage.getItem("user");
  let selectedDate="";
  let selectedTimeslot="";
  
@@ -13,8 +13,10 @@ let showDate=[];
 let timeslot=[];
 let reservedSeats=[];
 let selectedShow;
-let reciept;
-
+let theater;
+let confirm;
+let cancel;
+let movieTitle;
 
 
 let shows=[]
@@ -23,11 +25,18 @@ export async function initMovieShow(match) {
   console.log("initMovieShow")
     const movieId = match.params.id;
      shows = await fetch(url + movieId, makeOptions("GET",null, true)).then(r => handleHttpErrors(r));
+
+     //prepare fields
+     confirm=document.getElementById("complete-booking")
+     cancel=document.getElementById("cancel-booking")
+   
   
     // Populate movie info fields
+    movieTitle=shows[0].movie.title;
+  
     const poster = `<img  src="data:image/png;base64,${shows[0].movie.posterImg}" alt="Movie Poster" class="movie-poster" style="max-height:100%; max-width:100%">`;
     document.getElementById("movie-poster").innerHTML = poster;
-    document.getElementById("movie-title").innerText = shows[0].movie.title;
+    document.getElementById("movie-title").innerText = movieTitle
     document.getElementById("description").innerText = shows[0].movie.description;
   
      const dateselection = document.getElementById("date-selector");
@@ -70,7 +79,7 @@ export async function initMovieShow(match) {
        movieShowId = parseInt(selectedShow.id);
       console.log("Selected Movie Show ID:", movieShowId);
       // Here I want to use movieShow.id to get the Theater - call function
-        const theater=parseInt(selectedShow.theater.id);
+         theater=parseInt(selectedShow.theater.id);
         const btnString=`<button id="book-seat" type="button" class="btn btn-primary" style="margin:4">Show Booking
         </button>`;
       
@@ -86,11 +95,8 @@ export async function initMovieShow(match) {
             
          }
        // reset color of seats
-          const seats= document.querySelectorAll("rect")
-          
-          for (let i=0;i<seats.length;i++){
-            document.getElementById(seats[i].id).style.fill="gray"
-          }
+       clearseats();
+      
         document.querySelector("#btn-mod").innerHTML= btnString;
         document.getElementById("seat-listener").addEventListener("click",seathandler); 
         document.getElementById("seat-listener").addEventListener("mouseover",colorReservedSeats); 
@@ -101,32 +107,49 @@ export async function initMovieShow(match) {
   });
   }
   //functions 
+  function clearseats(){
+    const seats= document.querySelectorAll("rect")
+    
+    for (let i=0;i<seats.length;i++){
+      document.getElementById(seats[i].id).style.fill="gray"
+    }
+  }
   async function setupModal(){
     console.log("setupModal")
+    console.log(selectedShow.movie.title)
     document.querySelector("#booking-reciept").style.display="block";
-    document.querySelector("#timeslot").value=`${selectedShow.timeslot}`;
-    document.querySelector("#movie-title").value=`${selectedShow.movie.title}`;
-    document.querySelector("#showing-date").value=`${selectedDate}`
-    document.querySelector("#seat-number").value=`${seatnumber}`;  
+     document.querySelector("#timeslot").value=`${selectedShow.timeslot}`;
+    // document.querySelector("#movie-title").value=`${movieTitle}`;
+    document.querySelector("#showing-date").value=`${selectedDate}`;
+    document.querySelector("#seat-number").value=`Seat: ${seatnumber} theater: ${theater}`;  
    
 
-    document.querySelector("#complete-booking").addEventListener("click",makeReservation)
-    document.querySelector("#cancel-booking").addEventListener("click",clearbooking)
   
-function clearbooking(){
+  try{
+   document.querySelector("#complete-booking").onclick=await makeReservation()
+   document.querySelector("#cancel-booking").onclick=await clearbooking()
+  }catch(err){
+    console.log(err)
+  }
+    
+  }
+  
+async function clearbooking(){
     document.querySelector("#booking-reciept").style.display="none";
     document.querySelector("#timeslot").value="";
     document.querySelector("#movie-title").value="";
     document.querySelector("#showing-date").value=""
     document.querySelector("#seat-number").value="";
+    clearseats();
+    await colorReservedSeats()
 }
 
-  }
+  
 
     async function getReservedSeats(){
       console.log("getReservedSeats")
       try{
-      const res=  await fetch(url_reservation).then(r=>handleHttpErrors(r))
+      const res=  await fetch(url_reservation,makeOptions("GET",null,true)).then(r=>handleHttpErrors(r))
       return reservedSeats=res.filter(r=>r.movieShowId==movieShowId)
       }catch(err){
           console.log(err)
@@ -156,27 +179,33 @@ async function colorReservedSeats(){
     }
     seatnumber=parseInt(id.split("-")[1]); //seatnumber
    document.getElementById(id).style.fill="green"
-   console.log("seatnumber: "+seatnumber+", movieShowId: "+movieShowId+", username: "+HARDCODEDUSER)
+   console.log("seatnumber: "+seatnumber+", movieShowId: "+movieShowId+", username: "+localStorage.getItem("user")+" movietitile: "+ selectedShow.movie.title)
 
     
     }
     async function makeReservation(){
-      clearbooking;
+    console.log("makereservation")
         reservationRequest={
             seatNumber:seatnumber,
             movieShowId:movieShowId,          
-            userName:localStorage.getItem("user")
+            username:user
         }
         console.log(reservationRequest)
         try{
-          const res=  await fetch(url_reservation,makeOptions("POST",reservationRequest)).then(r=>handleHttpErrors(r))
-          //alert("you have booked seat: "+res.seatId+" on the "+ res.reservationDate+ " to the movie: "+res.movieTitle)
+          const res=  await fetch(url_reservation,makeOptions("POST",reservationRequest,true)).then(r=>handleHttpErrors(r))
+          setStatusMsg("Show was successfully booked", false)
          
       }catch(err){
-        console.log(err)
-
+        const errorMsg = err.apiError ? err.apiError.message : err.message
+        setStatusMsg(errorMsg, true)
+         
       }    
-    
+     
 
     }
-  
+    function setStatusMsg(msg, isError, node) {
+      const color = isError ? "red" : "darkgreen"
+      const statusNode = node ? document.getElementById(node) : document.getElementById("status")
+      statusNode.style.color = color
+      statusNode.innerText = msg
+    }
