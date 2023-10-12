@@ -15,7 +15,7 @@ let reservedSeats=[];
 let selectedShow;
 let reciept;
 
-const user=localStorage.getItem(user)
+
 
 let shows=[]
 
@@ -165,7 +165,7 @@ async function colorReservedSeats(){
         reservationRequest={
             seatNumber:seatnumber,
             movieShowId:movieShowId,          
-            userName:user
+            userName:localStorage.getItem("user")
         }
         console.log(reservationRequest)
         try{
