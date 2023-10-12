@@ -12,7 +12,9 @@ import {
   import { initMembers } from "./pages/members/members.js"  
   import{initMovieShow} from "./pages/movieshow/movieshow.js"
   import { initReservations } from "./pages/reservations/reservations.js"
+  import { initSchedule } from "./pages/admin/schedule/schedule.js"
   import { initProfile } from "./pages/profile/profile.js"
+
     window.addEventListener("load", async () => {
 
   const templateHome = await loadHtml("./pages/home/home.html")
@@ -24,7 +26,7 @@ import {
   const templateSignup = await loadHtml("./pages/signup/signup.html")
   const templateNotFound = await loadHtml("./pages/notFound/notFound.html")
   const templateLogin = await loadHtml("./pages/login/login.html")
-
+  const templateSchedule = await loadHtml("./pages/admin/schedule/schedule.html")
   //If token existed, for example after a refresh, set UI accordingly
   //const token = localStorage.getItem("token")
   //toggleLoginStatus(token) <--- ADD THIS WHEN SECURITY GETS ADDED
@@ -77,6 +79,10 @@ import {
       "/logout": () => {
         renderHtml(templateLogin, "content")
         //logout()
+      },
+      "/admin/schedule": () => {
+        renderHtml(templateSchedule, "content")
+        initSchedule()
       }
     })
     .notFound(() => {
