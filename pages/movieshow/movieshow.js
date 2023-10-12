@@ -12,12 +12,15 @@ let reservationRequest={};
 let showDate=[];
 let timeslot=[];
 let reservedSeats=[];
+let selectedShow;
+let reciept;
 
 const HARDCODEDUSER="username1"
 
 let shows=[]
 
 export async function initMovieShow(match) {
+  console.log("initMovieShow")
     const movieId = match.params.id;
      shows = await fetch(url + movieId).then(r => handleHttpErrors(r));
   
@@ -36,6 +39,7 @@ export async function initMovieShow(match) {
   
     // Function to update timeslot selector based on selected date
     function updateTimeslotSelector(selectedDate) {
+      console.log("updateTimeslotSelector")
         const filteredShows = shows.filter(show => show.showingDate === selectedDate);
         const uniqueTimeslots = [...new Set(filteredShows.map(show => show.timeslot))];
         timeslotselection.innerHTML = '<option selected></option>' + uniqueTimeslots.map(timeslot => `<option>${timeslot}</option>`).join("");
@@ -46,6 +50,7 @@ export async function initMovieShow(match) {
   
     // Event listener for date selector
     dateselection.addEventListener("change", function () {
+      console.log("dateselection")
        selectedDate = dateselection.value;
       console.log(dateselection.value)
       updateTimeslotSelector(selectedDate);
@@ -53,22 +58,23 @@ export async function initMovieShow(match) {
   
     // Event listener for timeslot selector
   timeslotselection.addEventListener("change", function () {
+    console.log("timeslotselection")
      selectedTimeslot = parseInt(timeslotselection.value);
     //console.log(typeof selectedTimeslot)
     const selectedDate = dateselection.value;
         console.log(shows)
     // Find the show that matches both selected date and timeslot
-    const selectedShow = shows.find(show => show.showingDate === selectedDate && show.timeslot === selectedTimeslot);
+     selectedShow = shows.find(show => show.showingDate === selectedDate && show.timeslot === selectedTimeslot);
 
     if (selectedShow) {
        movieShowId = parseInt(selectedShow.id);
       console.log("Selected Movie Show ID:", movieShowId);
       // Here I want to use movieShow.id to get the Theater - call function
         const theater=parseInt(selectedShow.theater.id);
-        const btnString=`<button id="bookseat" class="btn btn-sm btn-primary" >Book Seat
+        const btnString=`<button id="book-seat" type="button" class="btn btn-primary" style="margin:4">Show Booking
         </button>`;
       
-        //document.querySelector("btn-mod").innerHTML= btnString;
+        
         if(theater===1){
             document.querySelector("#theater-2").style.display="none"
            document.querySelector("#theater-1").style.display="block"
@@ -87,29 +93,53 @@ export async function initMovieShow(match) {
           }
         document.querySelector("#btn-mod").innerHTML= btnString;
         document.getElementById("seat-listener").addEventListener("click",seathandler); 
-        document.querySelector("#btn-mod").addEventListener("click",makeReservation);
+        document.getElementById("seat-listener").addEventListener("mouseover",colorReservedSeats); 
+        document.querySelector("#book-seat").addEventListener("click",setupModal);
+       // document.querySelector("#book-seat").
       
     } 
   });
   }
   //functions 
+  async function setupModal(){
+    console.log("setupModal")
+    document.querySelector("#booking-reciept").style.display="block";
+    document.querySelector("#timeslot").value=`${selectedShow.timeslot}`;
+    document.querySelector("#movie-title").value=`${selectedShow.movie.title}`;
+    document.querySelector("#showing-date").value=`${selectedDate}`
+    document.querySelector("#seat-number").value=`${seatnumber}`;  
+   
+
+    document.querySelector("#complete-booking").addEventListener("click",makeReservation)
+  
+  }
+
     async function getReservedSeats(){
+      console.log("getReservedSeats")
       try{
       const res=  await fetch(url_reservation).then(r=>handleHttpErrors(r))
       return reservedSeats=res.filter(r=>r.movieShowId==movieShowId)
       }catch(err){
           console.log(err)
         }
+        
+}
+async function colorReservedSeats(){
+  console.log("colorReservedSeats")
+    //color all reserved seat:
+    const seats= document.querySelectorAll("rect")
+    console.log(seats.length)
+    const reservedSeats= await getReservedSeats();
+    for (let i=0;i<reservedSeats.length;i++){
+     let index=parseInt(reservedSeats[i].seatId)-1;
+       document.getElementById(seats[index].id).style.fill="red"
+       
+      }
+
 }
  async  function seathandler(evt){
-    //color all reserved seat:
-  const seats= document.querySelectorAll("rect")
-   const reservedSeats= await getReservedSeats();
-   for (let i=0;i<reservedSeats.length;i++){
-    let index=parseInt(reservedSeats[i].seatId)
-      document.getElementById(seats[index].id).style.fill="red"
-   }
-   const seatId=reservedSeats.seatId
+    console.log("seathandler") 
+   
     const pressed=evt.target;
     const id=pressed.id;
     if(!id.includes("t1-")&&!id.includes("t2-")){
@@ -122,6 +152,7 @@ export async function initMovieShow(match) {
     
     }
     async function makeReservation(){
+      console.log("makeReservation")
         reservationRequest={
             seatNumber:seatnumber,
             movieShowId:movieShowId,          
@@ -130,13 +161,12 @@ export async function initMovieShow(match) {
         console.log(reservationRequest)
         try{
           const res=  await fetch(url_reservation,makeOptions("POST",reservationRequest)).then(r=>handleHttpErrors(r))
-          alert("you have booked seat: "+res.seatId+" on the "+ res.reservationDate+ " to the movie: "+res.movieTitle)
+          //alert("you have booked seat: "+res.seatId+" on the "+ res.reservationDate+ " to the movie: "+res.movieTitle)
+         
       }catch(err){
         console.log(err)
 
-      }
-        
-
+      }    
     
 
     }
