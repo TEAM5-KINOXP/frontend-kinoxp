@@ -5,21 +5,20 @@ const url_reservation=API_URL+"/reservations/reservations-for-authenticated"
 const user=localStorage.getItem("user");
  let selectedDate="";
  let selectedTimeslot="";
- 
+
 let movieShowId;
 let seatnumber;
-let reservationRequest={};
-let showDate=[];
-let timeslot=[];
-let reservedSeats=[];
+let reservationRequest = {};
+let showDate = [];
+let timeslot = [];
+let reservedSeats = [];
 let selectedShow;
 let theater;
 let confirm;
 let cancel;
 let movieTitle;
 
-
-let shows=[]
+let shows = [];
 
 export async function initMovieShow(match) {
   console.log("initMovieShow")
@@ -67,18 +66,22 @@ export async function initMovieShow(match) {
   
     // Event listener for timeslot selector
   timeslotselection.addEventListener("change", function () {
-    console.log("timeslotselection")
-     selectedTimeslot = parseInt(timeslotselection.value);
+    console.log("timeslotselection");
+    selectedTimeslot = parseInt(timeslotselection.value);
     //console.log(typeof selectedTimeslot)
     const selectedDate = dateselection.value;
-        console.log(shows)
+    console.log(shows);
     // Find the show that matches both selected date and timeslot
-     selectedShow = shows.find(show => show.showingDate === selectedDate && show.timeslot === selectedTimeslot);
+    selectedShow = shows.find(
+      (show) =>
+        show.showingDate === selectedDate && show.timeslot === selectedTimeslot
+    );
 
     if (selectedShow) {
-       movieShowId = parseInt(selectedShow.id);
+      movieShowId = parseInt(selectedShow.id);
       console.log("Selected Movie Show ID:", movieShowId);
       // Here I want to use movieShow.id to get the Theater - call function
+
          theater=parseInt(selectedShow.theater.id);
         const btnString=`<button id="book-seat" type="button" class="btn btn-primary" style="margin:4">Show Booking
         </button>`;
@@ -167,16 +170,25 @@ async function colorReservedSeats(){
        document.getElementById(seats[index].id).style.fill="red"
        
       }
+      // reset color of seats
+      const seats = document.querySelectorAll("rect");
 
-}
- async  function seathandler(evt){
-    console.log("seathandler") 
-   
-    const pressed=evt.target;
-    const id=pressed.id;
-    if(!id.includes("t1-")&&!id.includes("t2-")){
-        return
+      for (let i = 0; i < seats.length; i++) {
+        document.getElementById(seats[i].id).style.fill = "gray";
+      }
+      document.querySelector("#btn-mod").innerHTML = btnString;
+      document
+        .getElementById("seat-listener")
+        .addEventListener("click", seathandler);
+      document
+        .getElementById("seat-listener")
+        .addEventListener("mouseover", colorReservedSeats);
+      document
+        .querySelector("#book-seat")
+        .addEventListener("click", setupModal);
+      // document.querySelector("#book-seat").
     }
+
     seatnumber=parseInt(id.split("-")[1]); //seatnumber
    document.getElementById(id).style.fill="green"
    console.log("seatnumber: "+seatnumber+", movieShowId: "+movieShowId+", username: "+localStorage.getItem("user")+" movietitile: "+ selectedShow.movie.title)
