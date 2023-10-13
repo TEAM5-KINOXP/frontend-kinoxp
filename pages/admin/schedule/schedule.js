@@ -39,13 +39,13 @@ async function addMovieShow(event){
             timeslot : timeslot  
     }
 
-    const options = makeOptions("POST", movieShowRequestBody);
+    const options = makeOptions("POST", movieShowRequestBody, true);
     await fetch(URL, options).then(r => handleHttpErrors(r));
     location.reload();
 }
 
 async function fetchAllMovieShows(){
-    const options = makeOptions("GET");
+    const options = makeOptions("GET", null, true);
     const movieShows = await fetch(URL + "/admin", options).then(r =>handleHttpErrors(r));
 console.log(movieShows)
     const tableRows = movieShows.map(movieShow => `
@@ -82,7 +82,7 @@ async function setUpDeleteModal(e) {
 async function deleteMovieShow(id){
     try{
     const DELETE_URL = `${URL}/${id}`
-    const delete_res = await fetch(DELETE_URL, makeOptions("DELETE")).then(r => handleHttpErrors(r))
+    const delete_res = await fetch(DELETE_URL, makeOptions("DELETE", null, true)).then(r => handleHttpErrors(r))
     }catch(error){
         console.log(error)
     }
@@ -90,7 +90,7 @@ async function deleteMovieShow(id){
 }
 
 async function movieToImdb() {
-    const options = makeOptions("GET");
+    const options = makeOptions("GET", null, true);
 
  const movies = await fetch(API_URL + "/movies", options).then(r =>handleHttpErrors(r));
   const selectOptions = movies.map(movie => `
