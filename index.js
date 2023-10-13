@@ -8,8 +8,14 @@ import {
 
   import { initHome } from "./pages/home/home.js"
   import { initSignup } from "./pages/signup/signup.js"
-  import { initMovie, setUpDeleteModal, deleteMovie, addMovie} from "./pages/movie/movie.js"
-  import { initMembers } from "./pages/members/members.js"
+  import { initMovie } from "./pages/movie/movie.js"
+  import { initMembers } from "./pages/members/members.js"  
+  import { initMovieShow } from "./pages/movieshow/movieshow.js"
+  import { initReservations } from "./pages/reservations/reservations.js"
+  import { initSchedule } from "./pages/admin/schedule/schedule.js"
+  import { initProfile } from "./pages/profile/profile.js"
+  import { initLogin, toggleLoginStatus, logout } from "./pages/login/login.js"
+
     window.addEventListener("load", async () => {
 
   const templateHome = await loadHtml("./pages/home/home.html")
@@ -17,14 +23,15 @@ import {
   const templateMovie = await loadHtml("./pages/movie/movie.html")
   const templateProfile = await loadHtml("./pages/profile/profile.html")
   const templateReservations = await loadHtml("./pages/reservations/reservations.html")
-  const templateSchedule = await loadHtml("./pages/schedule/schedule.html")
+  const templateMovieshow = await loadHtml("./pages/movieshow/movieshow.html")
   const templateSignup = await loadHtml("./pages/signup/signup.html")
   const templateNotFound = await loadHtml("./pages/notFound/notFound.html")
   const templateLogin = await loadHtml("./pages/login/login.html")
-
+  const templateSchedule = await loadHtml("./pages/admin/schedule/schedule.html")
+  
   //If token existed, for example after a refresh, set UI accordingly
-  //const token = localStorage.getItem("token")
-  //toggleLoginStatus(token) <--- ADD THIS WHEN SECURITY GETS ADDED
+  const token = localStorage.getItem("token")
+  toggleLoginStatus(token) //<!-- ADD THIS WHEN SECURITY GETS ADDED -->
 
  const router = new Navigo("/", { hash: true });
   //Not especially nice, BUT MEANT to simplify things. Make the router global so it can be accessed from all js-files
@@ -50,20 +57,18 @@ import {
       "/movie": (match) => {
         renderHtml(templateMovie, "content")
         initMovie()
-        deleteMovie()
-        setUpDeleteModal()
-        addMovie()
       },
       "/profile": () => {
         renderHtml(templateProfile, "content")
-        //initProfile()
+        initProfile()
       },
       "/reservations": () => {
         renderHtml(templateReservations, "content")
-        //initListReservationsAll()
+        initReservations()
       },
-      "/schedule": () => {
-        renderHtml(templateSchedule, "content")
+      "/movieshow": (match) => {
+        renderHtml(templateMovieshow, "content")
+        initMovieShow(match)
       },
       "/signup": () => {
         renderHtml(templateSignup, "content")
@@ -71,11 +76,15 @@ import {
       },
       "/login": (match) => {
         renderHtml(templateLogin, "content")
-        //initLogin()
+        initLogin()
       }, 
       "/logout": () => {
         renderHtml(templateLogin, "content")
-        //logout()
+        logout()
+      },
+      "/admin/schedule": () => {
+        renderHtml(templateSchedule, "content")
+        initSchedule()
       }
     })
     .notFound(() => {

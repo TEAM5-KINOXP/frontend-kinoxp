@@ -28,17 +28,17 @@
           <li class="nav-item active">
             <a class="nav-link" href="/" data-navigo>Home</a>
           </li>
-          <li class="nav-item" id="members-container">
+          <li class="nav-item admin-only" id="members-container">
             <a class="nav-link" href="/members" data-navigo>Members</a>
           </li>
-          <li class="nav-item" id="movie-container">
+          <li class="nav-item admin-only" id="movie-container">
             <a class="nav-link" href="/movie" data-navigo>Movie</a>
           </li>
-          <li class="nav-item" id="reservations-container">
+          <li class="nav-item admin-only" id="reservations-container">
             <a class="nav-link" href="/reservations" data-navigo>Reservations</a>
           </li>
-          <li class="nav-item" id="schedule-container">
-            <a class="nav-link" href="/schedule" data-navigo>Schedule</a>
+          <li class="nav-item user-only" id="profile">
+            <a class="nav-link" href="/profile" data-navigo>Profile</a>
           </li>
           <li class="nav-item" id="signup-container">
             <a class="nav-link" href="/signup" data-navigo>Signup</a>
@@ -48,6 +48,9 @@
           </li>
           <li class="nav-item" id="logout-container">
             <a class="nav-link" href="/logout" data-navigo>Logout</a>
+          </li>
+          <li class="nav-item admin-only" id="schedule-container">
+            <a class="nav-link" href="/admin/schedule" data-navigo>Admin Schedule</a>
           </li>
         </ul>
       </div>
