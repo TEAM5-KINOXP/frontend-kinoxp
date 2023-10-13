@@ -7,6 +7,8 @@ export async function initProfile(){
     document.querySelector('#first-name').value = ""
     document.querySelector('#last-name').value = ""
 
+    
+    
     const profileInfo = await fetch(HARDCODEDUSER).then(handleHttpErrors)
     if(profileInfo){
         document.querySelector('#title').innerHTML = "Type new information for profile user: "+profileInfo.username
