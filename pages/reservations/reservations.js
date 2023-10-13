@@ -4,9 +4,11 @@ const URL = API_URL + "/reservations"
 
 export async function initReservations(){
 
-    const reservations = await fetch(URL).then(handleHttpErrors)
+    const reservations = await fetch(URL, makeOptions("GET", null, true)).then(r => handleHttpErrors(r))   
+
+
     const reservationRows = reservations.map(res => `
-        <tr>
+        <tr> 
             <td>${res.movieTitle}</td>
             <td>${res.reservationDate}</td>
             <td>${res.seatId}</td>
@@ -38,7 +40,7 @@ async function setUpCancelModal(evt){
 async function cancelReservation(id){
     try{
     const DELETE_URL = API_URL + `/reservations/${id}`
-    await fetch(DELETE_URL, makeOptions("DELETE")).then(handleHttpErrors)
+    await fetch(DELETE_URL, makeOptions("DELETE", null, true)).then(handleHttpErrors)
     }catch(error){
         console.log(error)
     }
