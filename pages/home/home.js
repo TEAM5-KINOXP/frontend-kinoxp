@@ -3,7 +3,7 @@ import { API_URL } from "../../settings.js";
 const url = API_URL + "/shows";
 
 export async function initHome() {
-  const shows = await fetch(url).then(handleHttpErrors);
+  const shows = await fetch(url).then(r => handleHttpErrors(r));
   const filteredMovies = filterUniqueMovies(shows);
   const moviePosters = filteredMovies
     .map(
