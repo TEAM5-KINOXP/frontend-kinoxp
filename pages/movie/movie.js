@@ -24,8 +24,6 @@ export async function initMovie() {
 
 }
 
-
-
 async function addMovie(){
     const imdbId = document.querySelector("#movie-imdb-id").value;
 
@@ -47,16 +45,25 @@ async function setUpDeleteModal(e) {
     document.querySelector("#delete-modal-label").textContent = header;
 
     document.querySelector("#delete-modal").addEventListener("click", async () => { await deleteMovie(movieId) });
-    }
+}
 
-async function deleteMovie(id){
-    try{
-    const DELETE_URL = `${url}/${id}`
-    const delete_res = await fetch(DELETE_URL, makeOptions("DELETE",null,true)).then(r => handleHttpErrors(r))
-    }catch(error){
-        console.log(error)
+async function deleteMovie(id) {
+    const errorMessageElement = document.querySelector("#errormessage");
+        
+    try {
+      const DELETE_URL = `${url}/${id}`;
+      const delete_res = await fetch(DELETE_URL, makeOptions("DELETE", null, true));
+      
+      if (!delete_res.ok) {
+        const errorResponse = await delete_res.json();
+        errorMessageElement.textContent = errorResponse.message;
+        } else {
+            location.reload()
+        }
+    } catch (error) {
+      errorMessageElement.textContent = "An error occurred while deleting the movie.";
+      console.error(error);
     }
-    location.reload()
 }
 
 
