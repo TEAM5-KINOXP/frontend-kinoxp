@@ -28,7 +28,6 @@ async function setUpDeleteModel(evt){
     const username = btn.id.split("_")[0]
     const headerText = `Delete user: ${username}`
     document.querySelector('#delete-modal-label').innerHTML = headerText
-
     document.querySelector('#delete-button').addEventListener('click', async () => {await deleteUser(username)})
 }
 async function deleteUser(username){
@@ -38,6 +37,7 @@ async function deleteUser(username){
     }catch(error){
         console.log(error)
     }
-    location.reload()
-
+    document.querySelector("#close-modal-button").click();
+    document.querySelector('#member-rows').innerHTML = ""
+    initMembers()
 }

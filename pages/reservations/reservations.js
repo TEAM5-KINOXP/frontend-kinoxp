@@ -44,5 +44,7 @@ async function cancelReservation(id){
     }catch(error){
         console.log(error)
     }
-    location.reload()
+    document.querySelector('#reservation-modal-close').click()
+    document.querySelector('#reservation-rows').innerHTML = ""
+    initReservations()
 }

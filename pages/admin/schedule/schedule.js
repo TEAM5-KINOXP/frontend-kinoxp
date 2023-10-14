@@ -41,7 +41,8 @@ async function addMovieShow(event){
 
     const options = makeOptions("POST", movieShowRequestBody, true);
     await fetch(URL, options).then(r => handleHttpErrors(r));
-    location.reload();
+    document.querySelector("#table-rows").innerHTML
+    fetchAllMovieShows()
 }
 
 async function fetchAllMovieShows(){
@@ -76,7 +77,7 @@ async function setUpDeleteModal(e) {
 
     document.querySelector("#delete-modal-label").textContent = header;
 
-    document.querySelector("#delete-modal").addEventListener("click", async () => { await deleteMovieShow(movieShowId) });
+    document.querySelector("#delete-button").addEventListener("click", async () => { await deleteMovieShow(movieShowId) });
     }
 
 async function deleteMovieShow(id){
@@ -86,7 +87,8 @@ async function deleteMovieShow(id){
     }catch(error){
         console.log(error)
     }
-    location.reload()
+    document.querySelector("#table-rows").innerHTML
+    fetchAllMovieShows()
 }
 
 async function movieToImdb() {
@@ -94,7 +96,7 @@ async function movieToImdb() {
 
  const movies = await fetch(API_URL + "/movies", options).then(r =>handleHttpErrors(r));
   const selectOptions = movies.map(movie => `
-  <option id="${movie.imdbID}" value="${movie.imdbID}">${movie.imdbID}</option>
+  <option id="${movie.imdbID}" value="${movie.imdbID}">${movie.title}</option>
   `)
   const selectInputs = selectOptions.join("");
 

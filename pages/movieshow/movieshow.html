@@ -4,29 +4,16 @@
     <div class = "container-fluid" id="movie-container">
         <div class="row">
             <div id="movie-selected" class="col" style="margin: 4">
-                
                 <div id="movie-poster">
-                    
                 </div>
-            
             </div>  
             <div class="col"style="margin: 4">
-            
                 <div id="movie-title"></div>
                 <p id="description">Short description of the movie goes here...</p>
                 <h4>Please select date:</h4>
-                <select id="date-selector">
-                    
-                    
-                </select>
-        
-                
+                <select id="date-selector"></select>
                 <h4>Please timeslot:</h4>
-                <select id="timeslot-selector" style="margin: 6;">
-                    
-                </select>
-                
-                
+                <select id="timeslot-selector" style="margin: 6;"></select>
                 <div id="btn-mod" style="display:block;" style="margin: 6">
                 </div>
                 <div id="status"></div>
@@ -34,44 +21,33 @@
                     <div class="col">
                         <div id="booking-message" style="display:block">
                             <h3 id="booking-header"></h3>
-                            <!-- <div class="input-group mb-3">
-                                <span class="input-group-text" id="basic-addon3">Movie</span>
-                            <input id="movie-title" class="form-control" type="text" placeholder="Default input">
-                            </div> -->
-                            
                             <div class="input-group mb-3">
                                 <span class="input-group-text" id="basic-addon1">Seat and theater</span>
                             <input id="seat-number" class="form-control" type="text" placeholder="Default input">
-                            </div>
-                            
+                            </div>      
                             <div class="input-group mb-3">
                                 <span class="input-group-text" id="basic-addon2">Date</span>
                             <input id="showing-date" class="form-control" type="text" placeholder="Default input">
-                            </div>
-                            
+                            </div>  
                             <div class="input-group mb-3">
                                 <span class="input-group-text" id="basic-addon4">Timeslot</span>
                             <input id="timeslot"class="form-control" type="text" placeholder="Default input">
                             </div>
                             <div class="input-group mb-3">
                             <div class="btn-group" role="group" aria-label="reset and submit"style="margin: 5">
-                                <input id="complete-booking "class="btn btn-primary" type="submit" value="Confirm">
-                                <input class="btn btn-secondary" type="reset" value="Close and Reset">
+                                <input id="complete-booking"class="btn btn-primary" type="submit" value="Confirm">
+                                <input id="cancel-booking" class="btn btn-secondary" type="reset" value="Close and Reset">
                             </div>
-                            </div>
-                           
+                            </div>   
                         </div>
                     </div>
             </div>
             </div>
-
             <div class="col" style="margin: 4;">
-                <div id="seat-listener">
-                    
-                    
+                <div id="seat-listener" style="text-align: center; display: flex; justify-content: center; align-items: center;"> 
                     <div id="theater-1" style="display: none;">
-                        <svg width="800" height="800" xmlns="http://www.w3.org/2000/svg">
-                            <!-- Create the rows and t1s -->
+                        <p>Theater 1</p>
+                        <svg width="220" height="400" xmlns="http://www.w3.org/2000/svg">
                             <g id="small-theater">
                                 <!-- Rows -->
                                 <line x1="" y1="12.5" x2="220" y2="12.5" stroke="black" stroke-width="2" />
@@ -359,13 +335,11 @@
                                     <rect id="t1-240" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="165" />
                                 </g>
                             </g>
-                        </svg>                
-
+                        </svg>               
                     </div>
-                    
-                    <div id="theater-2" style="display: none;width:50%; height: au;">                    
-                        <svg width="800" height="800" xmlns="http://www.w3.org/2000/svg">
-                        
+                    <div id="theater-2" style="display: none;width:50%; height: au;">
+                        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Theater 2</p>                    
+                        <svg width="300" height="500" xmlns="http://www.w3.org/2000/svg">
                             <g id="big-theater">
                             
                                 <line x1="" y1="12.5" x2="275" y2="12.5" stroke="black" stroke-width="2" />
@@ -833,15 +807,11 @@
                                     <rect id="t2-400" width="10" height="10" fill="gray" stroke="black" stroke-width="1" x="225" />
                                 </g>
                             </g>
-                        </svg>                                   
-                        
+                        </svg>                                    
                     </div>
-                
-                    
                 </div>
             </div>
         </div>
-        
     </div>
 </div>    
 

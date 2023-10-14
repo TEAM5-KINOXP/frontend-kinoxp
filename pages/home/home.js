@@ -4,12 +4,13 @@ const url = API_URL + "/shows";
 
 export async function initHome() {
   const shows = await fetch(url).then(r => handleHttpErrors(r));
+  console.log(shows)
   const filteredMovies = filterUniqueMovies(shows);
   const moviePosters = filteredMovies
     .map(
       (show) => `
         <div id="${show.movieId}_movie" class="square"  style="width: 240px;height: 400px;;text-align: center;padding: 10px;margin: 30px;">
-            <div class="movie-title">${show.title}</div>
+            <div class="movie-title" style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">${show.title}</div>
                 <img  src="data:image/png;base64,${show.posterImg}" alt="Movie Poster" class="movie-poster" 
                 style="max-height:100%; max-width:100%">
             <div class="first-date">${show.firstShowingDate}</div>
@@ -23,7 +24,6 @@ export async function initHome() {
   document.querySelector("#square-container").addEventListener("click",function (event) {
     let target = event.target;
   
-    // Find the closest ancestor with an ID by traversing up the DOM tree
     while (target && !target.id) {
       target = target.parentElement;
     }
@@ -37,8 +37,6 @@ export async function initHome() {
         }      
       }
   });
-  
-  
 
 }
 
